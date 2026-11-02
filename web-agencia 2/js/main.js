@@ -134,11 +134,8 @@
     let seen = false;
     try { seen = sessionStorage.getItem("apoloIntro") === "1"; sessionStorage.setItem("apoloIntro", "1"); } catch (e) {}
     if (seen || reduceMotion) pre.remove();
-    else {
-      document.body.classList.add("intro");
-      setTimeout(() => { pre.classList.add("out"); document.body.classList.remove("intro"); }, 1700);
-      setTimeout(() => pre.remove(), 2500);
-    }
+    else if (window.APOLO_INTRO) window.APOLO_INTRO(pre, A_PATH);
+    else pre.remove();
   }
 
   /* ---------- Letras del logo animado en portada ---------- */
@@ -224,13 +221,24 @@
   const typed = $("#typed");
   if (typed && !reduceMotion) {
     const words = ["Instagram", "TikTok", "Facebook", "LinkedIn", "ChatGPT Ads", "redes sociales"];
+    const emojis = ["📸", "🎵", "👍", "💼", "🤖", "🚀"];
+    const emoji = $("#typedEmoji");
+    // Copias invisibles de cada palabra (con su emoji): el hueco mide siempre lo que la más larga y el párrafo no se mueve
+    const slot = $("#typedSlot");
+    words.forEach((wd, k) => slot.insertAdjacentHTML("beforeend", `<span class="typed-ghost" aria-hidden="true">${wd}<span class="typed-emoji">${emojis[k]}</span></span>`));
     let w = 0, i = words[0].length, deleting = true;
     setTimeout(function type() {
       const word = words[w];
+      if (deleting && i === word.length) emoji.classList.remove("pop");
       i += deleting ? -1 : 1;
       typed.textContent = word.slice(0, i);
       let delay = deleting ? 55 : 95;
-      if (!deleting && i === word.length) { deleting = true; delay = 1800; }
+      if (!deleting && i === word.length) {
+        // Palabra terminada: aparece su emoji
+        emoji.textContent = emojis[w];
+        emoji.classList.remove("pop"); void emoji.offsetWidth; emoji.classList.add("pop");
+        deleting = true; delay = 1900;
+      }
       else if (deleting && i === 0) { deleting = false; w = (w + 1) % words.length; delay = 300; }
       setTimeout(type, delay);
     }, 2200);
@@ -280,14 +288,141 @@
   }
 
   /* ---------- Caja registradora de la ilustración de leads ---------- */
-  const miTotal = $("#miTotal");
-  if (miTotal && !reduceMotion) {
-    let total = 0;
-    setTimeout(() => setInterval(() => {
-      total += [450, 890, 1200, 650][Math.floor(Math.random() * 4)];
-      miTotal.textContent = "+ " + total.toLocaleString("es-ES") + " €";
-      if (total > 20000) total = 0;
-    }, 870), 2400);
+  const money = $("#moneyIllu");
+  if (money) {
+    const NS = "http://www.w3.org/2000/svg";
+    const el = (tag, attrs, parent) => {
+      const n = document.createElementNS(NS, tag);
+      for (const k in attrs) n.setAttribute(k, attrs[k]);
+      if (parent) parent.appendChild(n);
+      return n;
+    };
+    const tween = (dur, fn) => new Promise((res) => {
+      const t0 = performance.now();
+      const step = (now) => {
+        const t = Math.min(1, (now - t0) / dur);
+        fn(t);
+        t < 1 ? requestAnimationFrame(step) : res();
+      };
+      requestAnimationFrame(step);
+    });
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    const easeIO = (t) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const eur = (v) => String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " €";
+
+    const people = $$(".mi-person", money);
+    const bars = $$(".mi-bar", money);
+    const coins = $$(".mi-coin", money);
+    const reg = $("#miRegister"), totalEl = $("#miTotal"), clientsEl = $("#miClients");
+    const fx = $("#miFx"), flights = $("#miFlights"), slot = $("#miSlot");
+    const SLOT = { x: 452, y: 134 };
+    const AMOUNTS = [450, 890, 1200, 650, 980, 1500, 720, 1100, 860];
+    let total = 0, shown = 0, clients = 0;
+
+    const setTotal = (from, to) => tween(700, (t) => { shown = from + (to - from) * easeOut(t); totalEl.textContent = eur(shown); });
+
+    // Destellos, anillo y "+importe" cuando el billete entra en la caja
+    const celebrate = (amount) => {
+      reg.classList.remove("hit"); void reg.getBBox(); reg.classList.add("hit");
+      setTimeout(() => reg.classList.remove("hit"), 260);
+      const ring = el("circle", { cx: SLOT.x, cy: SLOT.y, r: 6, fill: "none", stroke: "#86efac", "stroke-width": 2 }, fx);
+      tween(650, (t) => { ring.setAttribute("r", 6 + easeOut(t) * 46); ring.setAttribute("opacity", 1 - t); }).then(() => ring.remove());
+      const colors = ["#fbbf24", "#86efac", "#f0abfc", "#fff"];
+      for (let i = 0; i < 12; i++) {
+        const a = -Math.PI * (0.1 + 0.8 * Math.random()) - (i % 2 ? 0 : Math.PI * 0.05), d = 26 + Math.random() * 34;
+        const sp = el("circle", { r: 1.6 + Math.random() * 2, fill: colors[i % 4], filter: "url(#miGlow)" }, fx);
+        tween(700 + Math.random() * 300, (t) => {
+          const e = easeOut(t);
+          sp.setAttribute("cx", SLOT.x + Math.cos(a) * d * e);
+          sp.setAttribute("cy", SLOT.y + Math.sin(a) * d * e + t * t * 18);
+          sp.setAttribute("opacity", 1 - t);
+        }).then(() => sp.remove());
+      }
+      const plus = el("text", { x: SLOT.x, y: SLOT.y - 8, class: "mi-plus" }, fx);
+      plus.textContent = "+" + eur(amount);
+      tween(1300, (t) => { plus.setAttribute("y", SLOT.y - 8 - easeOut(t) * 46); plus.setAttribute("opacity", t < .7 ? 1 : (1 - t) / .3); }).then(() => plus.remove());
+    };
+
+    const give = async (k) => {
+      const person = people[k % 3];
+      const x0 = +person.getAttribute("transform").match(/translate\(([\d.]+)/)[1];
+      const arm = $(".mi-arm", person), held = $(".mi-held", person);
+      person.classList.add("active");
+      // Levanta el brazo
+      await tween(380, (t) => arm.setAttribute("transform", `rotate(${-26 * easeOut(t)} 16 -118)`));
+      held.classList.add("gone");
+      tween(520, (t) => arm.setAttribute("transform", `rotate(${-26 * (1 - easeIO(t))} 16 -118)`));
+
+      // Vuelo del billete en arco, con estela
+      const bill = el("g", {}, flights);
+      el("use", { href: "#miBill", x: -19, y: -11 }, bill);
+      const p0 = { x: x0 + 56, y: 300 - 140 }, p2 = { x: SLOT.x, y: SLOT.y - 16 };
+      const p1 = { x: (p0.x + p2.x) / 2, y: Math.min(p0.y, p2.y) - 95 - (2 - (k % 3)) * 12 };
+      let lastTrail = 0;
+      await tween(1050, (t) => {
+        const e = easeIO(t), u = 1 - e;
+        const x = u * u * p0.x + 2 * u * e * p1.x + e * e * p2.x;
+        const y = u * u * p0.y + 2 * u * e * p1.y + e * e * p2.y;
+        const rot = Math.sin(t * Math.PI * 3) * 16 * (1 - t);
+        bill.setAttribute("transform", `translate(${x} ${y}) rotate(${rot}) scale(${1 - t * .12})`);
+        if (t - lastTrail > .05 && t < .95) {
+          lastTrail = t;
+          const dot = el("circle", { cx: x, cy: y, r: 2.4, fill: "#86efac", filter: "url(#miGlow)" }, fx);
+          tween(500, (q) => { dot.setAttribute("opacity", .8 * (1 - q)); dot.setAttribute("r", 2.4 * (1 - q)); }).then(() => dot.remove());
+        }
+      });
+      // Entra por la ranura
+      slot.appendChild(bill);
+      await tween(260, (t) => bill.setAttribute("transform", `translate(${SLOT.x} ${p2.y + easeIO(t) * 30}) scale(.88)`));
+      bill.remove();
+
+      const amount = AMOUNTS[k];
+      celebrate(amount);
+      setTotal(total, total + amount);
+      total += amount;
+      bars[k] && bars[k].classList.add("on");
+      coins[k] && coins[k].classList.add("on");
+      if (!person.classList.contains("paid")) {
+        clients++;
+        clientsEl.textContent = `${clients} cliente${clients > 1 ? "s" : ""} nuevo${clients > 1 ? "s" : ""}`;
+        person.classList.add("paid");
+        const badge = $(".mi-badge", person);
+        badge.classList.remove("flip"); void badge.getBBox(); badge.classList.add("flip");
+      }
+      setTimeout(() => { held.classList.remove("gone"); person.classList.remove("active"); }, 500);
+    };
+
+    let visible = false;
+    new IntersectionObserver((en) => { visible = en[0].isIntersecting; }, { threshold: 0.2 }).observe(money);
+    const whenVisible = async () => { while (!visible || document.hidden) await sleep(300); };
+
+    if (reduceMotion) {
+      money.classList.add("static");
+      totalEl.textContent = eur(AMOUNTS.reduce((a, b) => a + b, 0));
+      clientsEl.textContent = "3 clientes nuevos";
+      people.forEach((p) => p.classList.add("paid"));
+    } else {
+      (async () => {
+        for (;;) {
+          for (let k = 0; k < AMOUNTS.length; k++) {
+            await whenVisible();
+            give(k);
+            await sleep(1500);
+          }
+          await sleep(2600);
+          // Reinicio suave del mes
+          coins.forEach((c) => { c.classList.add("out"); c.classList.remove("on"); });
+          bars.forEach((b) => b.classList.remove("on"));
+          people.forEach((p) => p.classList.remove("paid"));
+          setTotal(total, 0);
+          total = 0; clients = 0;
+          clientsEl.textContent = "0 clientes nuevos";
+          await sleep(900);
+          coins.forEach((c) => c.classList.remove("out"));
+        }
+      })();
+    }
   }
 
   /* ---------- Showroom de vehículos ---------- */
@@ -431,9 +566,14 @@
   });
 
   /* ---------- Formulario de contacto ---------- */
+  // Los envíos llegan por email a través de Web3Forms (https://web3forms.com).
+  // Pega aquí la "Access Key" que Web3Forms envía a tu correo.
+  const FORM_ACCESS_KEY = "PEGA-AQUI-TU-ACCESS-KEY";
   const form = $("#leadForm");
   if (form) {
-    form.addEventListener("submit", (e) => {
+    const submitBtn = $("button[type=submit]", form);
+    const errorBox = $(".form-error", form);
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       let ok = true;
       $$("[required]", form).forEach((f) => {
@@ -443,8 +583,47 @@
         if (!valid) ok = false;
       });
       if (!ok) return;
-      // Aquí se conectaría el envío real (CRM, email o formulario backend).
-      form.classList.add("sent");
+
+      const data = new FormData(form);
+      const payload = {
+        access_key: FORM_ACCESS_KEY,
+        subject: `Nuevo lead web: ${data.get("company")} (${data.get("sector")})`,
+        from_name: "Web APOLO MK",
+        replyto: data.get("email"),
+        Nombre: data.get("name"),
+        Empresa: data.get("company"),
+        Email: data.get("email"),
+        "Teléfono": data.get("phone") || "—",
+        Sector: data.get("sector"),
+        Servicios: data.getAll("svc").join(", ") || "—",
+        Mensaje: data.get("message") || "—",
+        "Acepta privacidad": "Sí",
+        "Acepta comunicaciones comerciales": data.get("marketing") ? "Sí" : "No",
+        botcheck: data.get("botcheck") ? true : "",
+      };
+
+      errorBox.hidden = true;
+      submitBtn.disabled = true;
+      const label = submitBtn.innerHTML;
+      submitBtn.innerHTML = "Enviando…";
+      try {
+        if (FORM_ACCESS_KEY.startsWith("PEGA-AQUI")) throw new Error("Falta la Access Key de Web3Forms en js/main.js");
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+        if (!res.ok || !json.success) throw new Error(json.message || "Error al enviar");
+        form.classList.add("sent");
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        errorBox.hidden = false;
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = label;
+      }
     });
   }
 
@@ -583,5 +762,77 @@
     copy.addEventListener("click", () => {
       navigator.clipboard?.writeText(location.href).then(() => { copy.textContent = "✓ Copiado"; setTimeout(() => (copy.textContent = "🔗 Copiar enlace"), 2000); });
     });
+  }
+
+  /* ---------- Animaciones ligadas al scroll ---------- */
+  if (!reduceMotion && document.body.dataset.page === "home") {
+    // Capas de parallax: velocidad relativa al centro de la pantalla
+    const layers = [
+      [".hero .blob-1", .35], [".hero .blob-2", -.25], [".hero .blob-3", .5],
+      [".fc-1", .18], [".fc-2", -.14], [".fc-3", .26],
+      [".wm", .22], [".money-illu", -.06], [".globe-wrap", -.08], [".gpt-visual", -.05],
+      [".showroom .sr-cars", -.07], [".bb-logo", .1],
+    ].flatMap(([sel, k]) => $$(sel).map((el) => ({ el, k, cur: 0 })));
+    const heroText = $(".hero-grid > div:first-child"), logoStage = $("#logoStage"), hero = $(".hero");
+    const containers = $$("main > .section > .container");
+    const process = $(".process"), steps = $$(".process .step");
+    const marquee = $(".marquee"), mTrack = $(".marquee-track");
+    const wms = $$(".wm");
+    let lastY = scrollY, vel = 0, ticking = false;
+
+    const frame = () => {
+      ticking = false;
+      const vh = innerHeight, y = scrollY;
+      vel += ((y - lastY) - vel) * 0.25;
+      lastY = y;
+
+      // Portada: el texto sube y se desvanece, el logo se aleja girando
+      if (hero) {
+        const h = Math.min(1, Math.max(0, y / (hero.offsetHeight * .85)));
+        const wide = innerWidth > 980; // en móvil el logo va encima del texto: solo se aleja, sin desplazarse
+        if (heroText && wide) { heroText.style.translate = `0 ${-h * 90}px`; heroText.style.opacity = 1 - h * .9; }
+        if (logoStage) { logoStage.style.scale = 1 - h * .18; logoStage.style.rotate = `${h * -6}deg`; logoStage.style.translate = wide ? `0 ${h * 60}px` : ""; }
+      }
+
+      layers.forEach((l) => {
+        const r = l.el.getBoundingClientRect();
+        const center = r.top + r.height / 2 - l.cur;
+        if (center < -vh || center > vh * 2) return;
+        l.cur = (center - vh / 2) * -l.k;
+        l.el.style.translate = `0 ${l.cur.toFixed(1)}px`;
+      });
+
+      // Cada sección crece ligeramente al entrar en pantalla
+      containers.forEach((c) => {
+        const r = c.getBoundingClientRect();
+        const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * .55)));
+        c.style.scale = (0.94 + 0.06 * p).toFixed(4);
+        c.style.opacity = (0.35 + 0.65 * p).toFixed(3);
+      });
+
+      // Marcas de agua giran con el scroll
+      wms.forEach((w) => { w.style.rotate = `${(y * 0.03) % 360}deg`; });
+
+      // Línea del proceso que se llena y pasos que se encienden
+      if (process) {
+        const r = process.getBoundingClientRect();
+        const pp = Math.min(1, Math.max(0, (vh * .75 - r.top) / (r.height + vh * .2)));
+        process.style.setProperty("--pp", pp.toFixed(3));
+        steps.forEach((s, i) => s.classList.toggle("lit", pp >= (i + .5) / steps.length));
+      }
+
+      // La cinta de canales acelera e inclina según la velocidad del scroll
+      if (marquee && mTrack) {
+        const a = mTrack.getAnimations()[0];
+        if (a) a.playbackRate = 1 + Math.min(6, Math.abs(vel) * 0.25) * (vel < 0 ? -1 : 1);
+        marquee.style.setProperty("--skew", `${Math.max(-12, Math.min(12, -vel * .4))}deg`);
+      }
+
+      if (Math.abs(vel) > .1) requestTick();
+    };
+    const requestTick = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+    addEventListener("scroll", requestTick, { passive: true });
+    addEventListener("resize", requestTick);
+    requestTick();
   }
 })();

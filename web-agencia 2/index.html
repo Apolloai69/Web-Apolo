@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="home">
-  <div class="preloader" id="preloader" aria-hidden="true"><div class="pl-logo" data-lockup="intro"></div></div>
+  <div class="preloader" id="preloader" aria-hidden="true"></div>
   <div class="bg-noise"></div>
   <div class="bg-grid"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
@@ -37,7 +37,7 @@
             <span class="line"><span>vendan cada mes</span></span>
           </h1>
           <p class="hero-sub">
-            Somos especialistas en <span class="typed" id="typed">Instagram</span>. Estrategia, contenido y publicidad en redes que garantizan
+            Somos especialistas en <span class="typed-slot" id="typedSlot"><span class="typed-line"><span class="typed" id="typed">Instagram</span><span class="typed-emoji pop" id="typedEmoji" aria-hidden="true">📸</span></span></span>. Estrategia, contenido y publicidad en redes que garantizan
             un mínimo de <strong style="color:#fff">50 leads al mes por cliente</strong> desde las redes sociales.
           </p>
           <div class="hero-ctas">
@@ -134,71 +134,126 @@
             <p>No vendemos “alcance” ni “engagement” a secas. Nos comprometemos por contrato con un mínimo de 50 leads al mes por cliente desde redes sociales: personas reales interesadas en comprarte.</p>
             <a href="#contacto" class="btn btn-primary magnetic">Quiero más clientes <span class="arrow">→</span></a>
           </div>
-<div class="money-illu reveal d1" role="img" aria-label="Ilustración: clientes pagando a tu negocio gracias a los leads de redes sociales">
-          <svg viewBox="0 0 520 340">
+<div class="money-illu reveal d1" id="moneyIllu" role="img" aria-label="Ilustración: leads de redes sociales que se convierten en clientes y pagan a tu negocio">
+          <svg viewBox="0 0 540 350">
             <defs>
-              <linearGradient id="regG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d28d9"/><stop offset="1" stop-color="#2b0f52"/></linearGradient>
+              <linearGradient id="regG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#2b0f52"/></linearGradient>
+              <linearGradient id="billG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6ee7b7"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+              <linearGradient id="miCloth0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#6d28d9"/></linearGradient>
+              <linearGradient id="miCloth1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0abfc"/><stop offset="1" stop-color="#c026d3"/></linearGradient>
+              <linearGradient id="miCloth2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5b4fc"/><stop offset="1" stop-color="#4f46e5"/></linearGradient>
               <filter id="miBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+              <filter id="miGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <clipPath id="miSlotClip"><rect x="0" y="-200" width="540" height="334"/></clipPath>
+              <g id="miBill">
+                <rect width="38" height="22" rx="3.5" fill="url(#billG)"/>
+                <rect x="3" y="3" width="32" height="16" rx="2" fill="none" stroke="#047857" stroke-width="1" opacity=".7"/>
+                <circle cx="19" cy="11" r="6" fill="#d1fae5" opacity=".75"/>
+                <text x="19" y="15" class="mi-eur">€</text>
+              </g>
             </defs>
-            <ellipse cx="260" cy="300" rx="250" ry="26" fill="#8b3dff" opacity=".22" filter="url(#miBlur)"/>
-            <line x1="10" y1="302" x2="510" y2="302" stroke="rgba(196,181,253,.25)" stroke-width="1.5"/>
-            <g class="mi-person" style="--d:0.0s" transform="translate(70 300)">
-        <ellipse cy="2" rx="34" ry="6" fill="#000" opacity=".35"/>
-        <rect x="-15" y="-62" width="13" height="62" rx="6" fill="#1e1b4b"/><rect x="2" y="-62" width="13" height="62" rx="6" fill="#1e1b4b"/>
-        <path d="M-24 -58 L-24 -110 Q-24 -128 -6 -128 L6 -128 Q24 -128 24 -110 L24 -58 Z" fill="#8b5cf6"/>
-        <path d="M-18 -116 L-26 -70" stroke="#8b5cf6" stroke-width="11" stroke-linecap="round"/>
-        <circle cx="-26" cy="-68" r="6" fill="#f2c9a5"/>
-        <g class="mi-arm"><path d="M16 -118 L50 -102" stroke="#8b5cf6" stroke-width="11" stroke-linecap="round"/>
-          <circle cx="53" cy="-101" r="6.5" fill="#f2c9a5"/>
-          <g transform="translate(50 -122) rotate(-14)"><rect width="38" height="22" rx="3" fill="#34d399"/><rect x="3" y="3" width="32" height="16" rx="2" fill="none" stroke="#065f46" stroke-width="1.2"/><text x="19" y="16" class="mi-eur">€</text></g></g>
-        <rect x="-5" y="-136" width="10" height="10" fill="#f2c9a5"/>
-        <circle cy="-148" r="17" fill="#f2c9a5"/>
-        <path d="M-17 -150 Q-16 -170 0 -169 Q17 -170 17 -150 Q12 -160 0 -159 Q-12 -160 -17 -150 Z" fill="#3b2314"/>
-        <g class="mi-tag" transform="translate(0 -184)"><rect x="-26" y="-11" width="52" height="22" rx="11"/><text y="4">Cliente</text></g>
-      </g><g class="mi-person" style="--d:0.4s" transform="translate(170 300)">
-        <ellipse cy="2" rx="34" ry="6" fill="#000" opacity=".35"/>
-        <rect x="-15" y="-62" width="13" height="62" rx="6" fill="#1e1b4b"/><rect x="2" y="-62" width="13" height="62" rx="6" fill="#1e1b4b"/>
-        <path d="M-24 -58 L-24 -110 Q-24 -128 -6 -128 L6 -128 Q24 -128 24 -110 L24 -58 Z" fill="#d946ef"/>
-        <path d="M-18 -116 L-26 -70" stroke="#d946ef" stroke-width="11" stroke-linecap="round"/>
-        <circle cx="-26" cy="-68" r="6" fill="#c68b59"/>
-        <g class="mi-arm"><path d="M16 -118 L50 -102" stroke="#d946ef" stroke-width="11" stroke-linecap="round"/>
-          <circle cx="53" cy="-101" r="6.5" fill="#c68b59"/>
-          <g transform="translate(50 -122) rotate(-14)"><rect width="38" height="22" rx="3" fill="#34d399"/><rect x="3" y="3" width="32" height="16" rx="2" fill="none" stroke="#065f46" stroke-width="1.2"/><text x="19" y="16" class="mi-eur">€</text></g></g>
-        <rect x="-5" y="-136" width="10" height="10" fill="#c68b59"/>
-        <circle cy="-148" r="17" fill="#c68b59"/>
-        <path d="M-17 -150 Q-16 -170 0 -169 Q17 -170 17 -150 Q12 -160 0 -159 Q-12 -160 -17 -150 Z" fill="#1a1a1a"/>
-        <g class="mi-tag" transform="translate(0 -184)"><rect x="-26" y="-11" width="52" height="22" rx="11"/><text y="4">Cliente</text></g>
-      </g><g class="mi-person" style="--d:0.8s" transform="translate(270 300)">
-        <ellipse cy="2" rx="34" ry="6" fill="#000" opacity=".35"/>
-        <rect x="-15" y="-62" width="13" height="62" rx="6" fill="#1e1b4b"/><rect x="2" y="-62" width="13" height="62" rx="6" fill="#1e1b4b"/>
-        <path d="M-24 -58 L-24 -110 Q-24 -128 -6 -128 L6 -128 Q24 -128 24 -110 L24 -58 Z" fill="#6366f1"/>
-        <path d="M-18 -116 L-26 -70" stroke="#6366f1" stroke-width="11" stroke-linecap="round"/>
-        <circle cx="-26" cy="-68" r="6" fill="#8d5524"/>
-        <g class="mi-arm"><path d="M16 -118 L50 -102" stroke="#6366f1" stroke-width="11" stroke-linecap="round"/>
-          <circle cx="53" cy="-101" r="6.5" fill="#8d5524"/>
-          <g transform="translate(50 -122) rotate(-14)"><rect width="38" height="22" rx="3" fill="#34d399"/><rect x="3" y="3" width="32" height="16" rx="2" fill="none" stroke="#065f46" stroke-width="1.2"/><text x="19" y="16" class="mi-eur">€</text></g></g>
-        <rect x="-5" y="-136" width="10" height="10" fill="#8d5524"/>
-        <circle cy="-148" r="17" fill="#8d5524"/>
-        <path d="M-17 -150 Q-16 -170 0 -169 Q17 -170 17 -150 Q12 -160 0 -159 Q-12 -160 -17 -150 Z" fill="#0f0f0f"/>
-        <g class="mi-tag" transform="translate(0 -184)"><rect x="-26" y="-11" width="52" height="22" rx="11"/><text y="4">Cliente</text></g>
-      </g>
-            <g class="mi-register">
-              <circle cx="430" cy="210" r="70" fill="#a855f7" opacity=".3" filter="url(#miBlur)"/>
-              <rect x="370" y="208" width="120" height="92" rx="14" fill="url(#regG)" stroke="#a78bfa" stroke-width="1.5"/>
-              <rect x="388" y="196" width="84" height="14" rx="4" fill="#12061f" stroke="#a78bfa" stroke-width="1"/>
-              <rect x="382" y="148" width="96" height="44" rx="10" fill="#12061f" stroke="#a78bfa" stroke-width="1.5"/>
-              <text x="430" y="176" class="mi-screen" id="miTotal">+ 0 €</text>
-              <g fill="#c4b5fd" opacity=".75"><rect x="386" y="226" width="18" height="12" rx="3"/><rect x="412" y="226" width="18" height="12" rx="3"/><rect x="438" y="226" width="18" height="12" rx="3"/><rect x="464" y="226" width="18" height="12" rx="3"/><rect x="386" y="246" width="18" height="12" rx="3"/><rect x="412" y="246" width="18" height="12" rx="3"/><rect x="438" y="246" width="18" height="12" rx="3"/><rect x="464" y="246" width="18" height="12" rx="3"/><rect x="386" y="266" width="18" height="12" rx="3"/><rect x="412" y="266" width="18" height="12" rx="3"/><rect x="438" y="266" width="18" height="12" rx="3"/><rect x="464" y="266" width="18" height="12" rx="3"/></g>
-              <text x="430" y="324" class="mi-label">Tu negocio</text>
+            <ellipse cx="270" cy="304" rx="260" ry="24" fill="#8b3dff" opacity=".22" filter="url(#miBlur)"/>
+            <line x1="10" y1="302" x2="530" y2="302" stroke="rgba(196,181,253,.22)" stroke-width="1.5"/>
+            
+            <g class="mi-person" data-i="0" transform="translate(62 300)">
+              <ellipse class="mi-spot" cy="2" rx="44" ry="9"/>
+              <ellipse cy="3" rx="28" ry="5" fill="#000" opacity=".4"/>
+              <g class="mi-body" style="--d:0.0s">
+                <path d="M-14 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z M2 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" fill="#1b1640"/>
+                <ellipse cx="-9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/><ellipse cx="9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/>
+                <path d="M-20 -114 Q-31 -92 -27 -72" fill="none" stroke="#6d28d9" stroke-width="11" stroke-linecap="round"/>
+                <circle cx="-27" cy="-68" r="6" fill="#f2c9a5"/>
+                <path d="M-25 -60V-108Q-25 -128 -5 -128H5Q25 -128 25 -108V-60Q25 -56 21 -56H-21Q-25 -56 -25 -60Z" fill="url(#miCloth0)"/>
+                <path d="M-8 -128 0 -117 8 -128" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linejoin="round"/>
+                <rect x="-5" y="-136" width="10" height="10" fill="#f2c9a5"/>
+                <circle cy="-150" r="17" fill="#f2c9a5"/>
+                <path d="M-17 -151Q-17 -171 0 -170Q17 -171 17 -151Q12 -162 0 -161Q-12 -162 -17 -151Z" fill="#3b2314"/>
+                <circle cx="-6" cy="-150" r="1.9" fill="#1a1030"/><circle cx="6" cy="-150" r="1.9" fill="#1a1030"/>
+                <circle cx="-10" cy="-144" r="3" fill="#f472b6" opacity=".3"/><circle cx="10" cy="-144" r="3" fill="#f472b6" opacity=".3"/>
+                <path class="mi-smile" d="M-5 -143Q0 -139 5 -143" fill="none" stroke="#1a1030" stroke-width="1.6" stroke-linecap="round"/>
+                <g class="mi-arm">
+                  <path d="M16 -118L46 -101" stroke="#8b5cf6" stroke-width="11" stroke-linecap="round"/>
+                  <circle cx="49" cy="-99" r="6.5" fill="#f2c9a5"/>
+                  <g class="mi-held" transform="translate(42 -121) rotate(-12)"><use href="#miBill"/></g>
+                </g>
+              </g>
+              <g class="mi-badge" transform="translate(0 -194)">
+                <rect x="-34" y="-12" width="68" height="24" rx="12"/>
+                <text class="b-lead" y="4">Lead</text><text class="b-client" y="4">Cliente ✓</text>
+              </g>
             </g>
-            <g class="mi-bill"><rect x="-17" y="-10" width="34" height="20" rx="3" fill="#34d399"/><text y="5" class="mi-eur">€</text>
-        <animateMotion dur="2.6s" begin="0.0s" repeatCount="indefinite" path="M140 178 Q285 60 430 205"/>
-        <animate attributeName="opacity" dur="2.6s" begin="0.0s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.1;.85;1"/></g><g class="mi-bill"><rect x="-17" y="-10" width="34" height="20" rx="3" fill="#34d399"/><text y="5" class="mi-eur">€</text>
-        <animateMotion dur="2.6s" begin="0.85s" repeatCount="indefinite" path="M240 178 Q335 70 430 205"/>
-        <animate attributeName="opacity" dur="2.6s" begin="0.85s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.1;.85;1"/></g><g class="mi-bill"><rect x="-17" y="-10" width="34" height="20" rx="3" fill="#34d399"/><text y="5" class="mi-eur">€</text>
-        <animateMotion dur="2.6s" begin="1.7s" repeatCount="indefinite" path="M340 178 Q385 80 430 205"/>
-        <animate attributeName="opacity" dur="2.6s" begin="1.7s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.1;.85;1"/></g>
-            <g class="mi-coins"><g class="mi-coin" style="--d:0.0s;--x:-26px"><circle cx="430" cy="140" r="11"/><text x="430" y="144">€</text></g><g class="mi-coin" style="--d:0.85s;--x:0px"><circle cx="430" cy="140" r="11"/><text x="430" y="144">€</text></g><g class="mi-coin" style="--d:1.7s;--x:26px"><circle cx="430" cy="140" r="11"/><text x="430" y="144">€</text></g></g>
+            <g class="mi-person" data-i="1" transform="translate(160 300)">
+              <ellipse class="mi-spot" cy="2" rx="44" ry="9"/>
+              <ellipse cy="3" rx="28" ry="5" fill="#000" opacity=".4"/>
+              <g class="mi-body" style="--d:0.45s">
+                <path d="M-14 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z M2 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" fill="#1b1640"/>
+                <ellipse cx="-9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/><ellipse cx="9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/>
+                <path d="M-20 -114 Q-31 -92 -27 -72" fill="none" stroke="#c026d3" stroke-width="11" stroke-linecap="round"/>
+                <circle cx="-27" cy="-68" r="6" fill="#c68b59"/>
+                <path d="M-25 -60V-108Q-25 -128 -5 -128H5Q25 -128 25 -108V-60Q25 -56 21 -56H-21Q-25 -56 -25 -60Z" fill="url(#miCloth1)"/>
+                <path d="M-8 -128 0 -117 8 -128" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linejoin="round"/>
+                <rect x="-5" y="-136" width="10" height="10" fill="#c68b59"/>
+                <circle cy="-150" r="17" fill="#c68b59"/>
+                <path d="M-17 -151Q-17 -171 0 -170Q17 -171 17 -151Q12 -162 0 -161Q-12 -162 -17 -151Z" fill="#1a1a1a"/>
+                <circle cx="-6" cy="-150" r="1.9" fill="#1a1030"/><circle cx="6" cy="-150" r="1.9" fill="#1a1030"/>
+                <circle cx="-10" cy="-144" r="3" fill="#f472b6" opacity=".3"/><circle cx="10" cy="-144" r="3" fill="#f472b6" opacity=".3"/>
+                <path class="mi-smile" d="M-5 -143Q0 -139 5 -143" fill="none" stroke="#1a1030" stroke-width="1.6" stroke-linecap="round"/>
+                <g class="mi-arm">
+                  <path d="M16 -118L46 -101" stroke="#e879f9" stroke-width="11" stroke-linecap="round"/>
+                  <circle cx="49" cy="-99" r="6.5" fill="#c68b59"/>
+                  <g class="mi-held" transform="translate(42 -121) rotate(-12)"><use href="#miBill"/></g>
+                </g>
+              </g>
+              <g class="mi-badge" transform="translate(0 -194)">
+                <rect x="-34" y="-12" width="68" height="24" rx="12"/>
+                <text class="b-lead" y="4">Lead</text><text class="b-client" y="4">Cliente ✓</text>
+              </g>
+            </g>
+            <g class="mi-person" data-i="2" transform="translate(258 300)">
+              <ellipse class="mi-spot" cy="2" rx="44" ry="9"/>
+              <ellipse cy="3" rx="28" ry="5" fill="#000" opacity=".4"/>
+              <g class="mi-body" style="--d:0.9s">
+                <path d="M-14 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z M2 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" fill="#1b1640"/>
+                <ellipse cx="-9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/><ellipse cx="9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/>
+                <path d="M-20 -114 Q-31 -92 -27 -72" fill="none" stroke="#4f46e5" stroke-width="11" stroke-linecap="round"/>
+                <circle cx="-27" cy="-68" r="6" fill="#8d5524"/>
+                <path d="M-25 -60V-108Q-25 -128 -5 -128H5Q25 -128 25 -108V-60Q25 -56 21 -56H-21Q-25 -56 -25 -60Z" fill="url(#miCloth2)"/>
+                <path d="M-8 -128 0 -117 8 -128" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linejoin="round"/>
+                <rect x="-5" y="-136" width="10" height="10" fill="#8d5524"/>
+                <circle cy="-150" r="17" fill="#8d5524"/>
+                <path d="M-17 -151Q-17 -171 0 -170Q17 -171 17 -151Q12 -162 0 -161Q-12 -162 -17 -151Z" fill="#0f0f0f"/>
+                <circle cx="-6" cy="-150" r="1.9" fill="#1a1030"/><circle cx="6" cy="-150" r="1.9" fill="#1a1030"/>
+                <circle cx="-10" cy="-144" r="3" fill="#f472b6" opacity=".3"/><circle cx="10" cy="-144" r="3" fill="#f472b6" opacity=".3"/>
+                <path class="mi-smile" d="M-5 -143Q0 -139 5 -143" fill="none" stroke="#1a1030" stroke-width="1.6" stroke-linecap="round"/>
+                <g class="mi-arm">
+                  <path d="M16 -118L46 -101" stroke="#818cf8" stroke-width="11" stroke-linecap="round"/>
+                  <circle cx="49" cy="-99" r="6.5" fill="#8d5524"/>
+                  <g class="mi-held" transform="translate(42 -121) rotate(-12)"><use href="#miBill"/></g>
+                </g>
+              </g>
+              <g class="mi-badge" transform="translate(0 -194)">
+                <rect x="-34" y="-12" width="68" height="24" rx="12"/>
+                <text class="b-lead" y="4">Lead</text><text class="b-client" y="4">Cliente ✓</text>
+              </g>
+            </g>
+            <g class="mi-register" id="miRegister">
+              <circle class="mi-reg-glow" cx="452" cy="212" r="78" fill="#a855f7" filter="url(#miBlur)"/>
+              <rect x="392" y="140" width="120" height="150" rx="18" fill="url(#regG)" stroke="#a78bfa" stroke-width="1.5"/>
+              <path d="M410 141Q395 141 393 158V200Q420 150 470 141Z" fill="#fff" opacity=".07"/>
+              <rect x="410" y="128" width="84" height="12" rx="6" fill="#0a0414" stroke="#a78bfa" stroke-width="1.2"/>
+              <rect x="420" y="132" width="64" height="3" rx="1.5" fill="#c084fc" opacity=".55"/>
+              <rect class="mi-screen-bg" x="404" y="152" width="96" height="76" rx="10" fill="#0b0418" stroke="rgba(167,139,250,.6)"/>
+              <text x="412" y="166" class="mi-cap">INGRESOS DEL MES</text>
+              <text x="452" y="188" class="mi-screen" id="miTotal">0 €</text>
+              <g id="miBars"><rect class="mi-bar" x="411.0" y="215" width="6" height="7" rx="1.5"/><rect class="mi-bar" x="420.6" y="212" width="6" height="10" rx="1.5"/><rect class="mi-bar" x="430.2" y="213" width="6" height="9" rx="1.5"/><rect class="mi-bar" x="439.8" y="209" width="6" height="13" rx="1.5"/><rect class="mi-bar" x="449.4" y="207" width="6" height="15" rx="1.5"/><rect class="mi-bar" x="459.0" y="208" width="6" height="14" rx="1.5"/><rect class="mi-bar" x="468.6" y="204" width="6" height="18" rx="1.5"/><rect class="mi-bar" x="478.2" y="201" width="6" height="21" rx="1.5"/><rect class="mi-bar" x="487.8" y="198" width="6" height="24" rx="1.5"/></g>
+              <use href="#apolo-mark" x="437" y="236" width="30" height="24"/>
+              <text x="452" y="278" class="mi-clients" id="miClients">0 clientes nuevos</text>
+            </g>
+            <g id="miCoins"><g class="mi-coin" transform="translate(338 296)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(362 296)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(338 291)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(362 291)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(338 286)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(362 286)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(338 281)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(362 281)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(338 276)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(362 276)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g></g>
+            <text x="452" y="330" class="mi-label">Tu negocio</text>
+            <g id="miFx"></g>
+            <g id="miFlights"></g>
+            <g id="miSlot" clip-path="url(#miSlotClip)"></g>
           </svg>
         </div>
         </div>
@@ -576,15 +631,16 @@
           </div>
           <a href="#contacto" class="btn btn-ghost btn-lg magnetic reveal">Hablemos, estés donde estés <span class="arrow">→</span></a>
         </div>
-        <div class="globe-wrap reveal" aria-hidden="true">
-          <div class="orbit o2"></div>
-          <div class="orbit"><span class="sat"></span></div>
-          <div class="globe"></div>
-          <div class="pin madrid" style="top:40%;left:48%"><span class="lbl">Madrid HQ</span><div class="ping"></div></div>
-          <div class="pin" style="top:30%;left:28%"><span class="lbl">Nueva York</span><div class="ping"></div></div>
-          <div class="pin" style="top:62%;left:32%"><span class="lbl">Ciudad de México</span><div class="ping"></div></div>
-          <div class="pin" style="top:28%;left:66%"><span class="lbl">Berlín</span><div class="ping"></div></div>
-          <div class="pin" style="top:56%;left:72%"><span class="lbl">Dubái</span><div class="ping"></div></div>
+        <div class="globe-wrap earth reveal" id="earth" role="img" aria-label="La Tierra vista desde satélite girando entre ubicaciones de todo el mundo">
+          <div class="orbit o2" aria-hidden="true"></div>
+          <div class="globe earth-fallback" aria-hidden="true"></div>
+          <div class="earth-canvas" id="earthCanvas" aria-hidden="true"></div>
+          <div class="earth-labels" id="earthLabels" aria-hidden="true"></div>
+          <div class="earth-hud" aria-hidden="true">
+            <span class="eh-live"><i></i> Vista satélite</span>
+            <span class="eh-city" id="ehCity">Madrid, España</span>
+            <span class="eh-coord" id="ehCoord">40.42° N · 3.70° O</span>
+          </div>
         </div>
       </div>
     </section>
@@ -692,7 +748,9 @@
             <div class="input"><label for="fMsg">Cuéntanos tu objetivo</label><textarea id="fMsg" name="message" placeholder="Ej.: queremos captar más clientes en Madrid y Barcelona…"></textarea></div>
             <label class="consent"><input type="checkbox" name="privacy" required> <span>He leído y acepto la <a href="legal.html#privacidad" target="_blank">política de privacidad</a> y el tratamiento de mis datos para recibir la auditoría.</span></label>
             <label class="consent"><input type="checkbox" name="marketing"> <span>Quiero recibir novedades y consejos de marketing en redes (opcional).</span></label>
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <button type="submit" class="btn btn-primary btn-lg btn-block">Solicitar auditoría gratuita <span class="arrow">→</span></button>
+            <p class="form-error" role="alert" hidden>No hemos podido enviar tu solicitud. Inténtalo de nuevo o escríbenos a <a href="mailto:hola@apolomk.es">hola@apolomk.es</a>.</p>
             <p class="rgpd-info"><strong>Información básica sobre protección de datos.</strong> Responsable: APOLO Marketing. Finalidad: atender tu solicitud y enviarte la auditoría o presupuesto. Legitimación: tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y otros, en privacidad@apolomk.es. Más información en la <a href="legal.html#privacidad">política de privacidad</a>.</p>
           </div>
           <div class="form-ok">
@@ -711,6 +769,9 @@
 
   <script src="js/articles.js"></script>
   <script src="js/covers.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/intro.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/globe.js"></script>
 </body>
 </html>
