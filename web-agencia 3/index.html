@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syncopate:wght@700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 <body data-page="home">
   <div class="preloader" id="preloader" aria-hidden="true"></div>
@@ -500,7 +500,7 @@
     <!-- ============ AUTOMOCIÓN / SECTORES ============ -->
     <section class="section" id="sectores">
       <div class="container auto-grid">
-        <div class="showroom reveal" id="showroom" aria-roledescription="carrusel" aria-label="Vehículos de nuestros clientes de automoción">
+        <div class="showroom reveal" id="showroom" aria-roledescription="carrusel" aria-label="Showroom de coches de lujo">
           <div class="sr-stage">
             <div class="sr-glow"></div>
             <div class="sr-rings"><i></i><i></i><i></i></div>
@@ -510,19 +510,22 @@
               <i style="top:60%;width:50%;animation-delay:.8s"></i>
             </div>
             <div class="sr-cars">
-              <figure class="sr-car on" data-name="Renault Clio" data-type="Turismo"><img src="img/vehiculos/renault-clio.png" alt="Renault Clio blanco" width="1000" height="620"></figure>
-              <figure class="sr-car" data-name="Toyota Proace City" data-type="Furgoneta combi"><img src="img/vehiculos/toyota-city.png" alt="Toyota Proace City blanca" width="1000" height="716" loading="lazy"></figure>
-              <figure class="sr-car" data-name="Fiat Scudo" data-type="Furgoneta comercial"><img src="img/vehiculos/fiat-scudo.png" alt="Fiat Scudo furgoneta blanca" width="1000" height="706" loading="lazy"></figure>
-              <figure class="sr-car" data-name="Toyota Land Cruiser" data-type="Todoterreno"><img src="img/vehiculos/toyota-land-cruiser.png" alt="Toyota Land Cruiser blanco" width="1000" height="682" loading="lazy"></figure>
-              <figure class="sr-car" data-name="Toyota Hilux" data-type="Pick-up"><img src="img/vehiculos/toyota-hilux.png" alt="Toyota Hilux pick-up blanca" width="1000" height="553" loading="lazy"></figure>
+              <figure class="sr-car on" data-name="Lamborghini Revuelto" data-type="Superdeportivo híbrido · V12" data-price="1.015 CV" data-glb="img/vehiculos/lujo/lamborghini-revuelto.glb"><img src="img/vehiculos/lujo/lamborghini-revuelto.webp" alt="Lamborghini Revuelto morado"></figure>
+              <figure class="sr-car" data-name="Rolls-Royce Cullinan" data-type="SUV de lujo · V12 biturbo" data-price="V12 6.75 L" data-glb="img/vehiculos/lujo/rolls-royce-cullinan.glb"><img src="img/vehiculos/lujo/rolls-royce-cullinan.webp" alt="Rolls-Royce Cullinan negro" loading="lazy"></figure>
+              <figure class="sr-car" data-name="Ferrari Roma" data-type="Coupé GT · V8 biturbo" data-price="620 CV" data-glb="img/vehiculos/lujo/ferrari-roma.glb"><img src="img/vehiculos/lujo/ferrari-roma.webp" alt="Ferrari Roma rojo" loading="lazy"></figure>
+              <figure class="sr-car" data-name="Porsche 911 GT3 RS" data-type="Deportivo de circuito · bóxer 4.0" data-price="525 CV" data-glb="img/vehiculos/lujo/porsche-911-gt3-rs.glb"><img src="img/vehiculos/lujo/porsche-911-gt3-rs.webp" alt="Porsche 911 GT3 RS blanco" loading="lazy"></figure>
+              <figure class="sr-car" data-name="Bentley Continental GT" data-type="Gran turismo de lujo · biturbo" data-price="V8 4.0" data-glb="img/vehiculos/lujo/bentley-continental-gt.glb"><img src="img/vehiculos/lujo/bentley-continental-gt.webp" alt="Bentley Continental GT verde" loading="lazy"></figure>
+              <figure class="sr-car" data-name="Mercedes-AMG G 63" data-type="Todoterreno de lujo · V8 biturbo" data-price="585 CV" data-glb="img/vehiculos/lujo/mercedes-amg-g63.glb"><img src="img/vehiculos/lujo/mercedes-amg-g63.webp" alt="Mercedes-AMG G 63 negro" loading="lazy"></figure>
             </div>
+            <canvas class="sr-3d" id="sr3d" aria-label="Modelo 3D del vehículo: arrastra para girarlo"></canvas>
+            <div class="sr-hint" aria-hidden="true"><span>↔</span> Arrastra para girar 360°</div>
             <div class="sr-floor"></div>
-            <div class="auto-chip ac-1">🚗 Test drives <b>reservados</b></div>
+            <div class="auto-chip ac-1">🏁 Stock <b>premium</b></div>
             <div class="auto-chip ac-2">📈 Leads <b>cualificados</b></div>
             <div class="auto-chip ac-3">🎯 Público <b>en mercado</b></div>
           </div>
           <div class="sr-bar">
-            <div class="sr-info"><span class="sr-type" id="srType">Turismo</span><strong id="srName">Renault Clio</strong></div>
+            <div class="sr-info"><span class="sr-type" id="srType">Superdeportivo híbrido · V12</span><div class="sr-row"><strong id="srName">Lamborghini Revuelto</strong><span class="sr-price" id="srPrice">1.015 CV</span></div></div>
             <div class="sr-ctrl">
               <button type="button" class="sr-btn" id="srPrev" aria-label="Vehículo anterior">←</button>
               <div class="sr-dots" id="srDots"></div>
@@ -771,7 +774,10 @@
   <script src="js/covers.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="js/intro.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/environments/RoomEnvironment.js"></script>
+  <script src="js/showroom3d.js?v=3"></script>
   <script src="js/globe.js"></script>
 </body>
 </html>

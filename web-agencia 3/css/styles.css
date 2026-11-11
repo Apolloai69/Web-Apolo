@@ -1169,3 +1169,38 @@ main > .section > .container { transform-origin: 50% 0; will-change: scale, opac
 .preloader.shatter .pl-stage { opacity: 0; transform: scale(1.2); filter: blur(6px); transition: opacity .55s .1s, transform .7s var(--ease), filter .6s; }
 .pl-shards { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; overflow: visible; }
 .ck-ray.thin { stroke-width: .8; stroke: rgba(255,255,255,.7); }
+
+/* ---------- Showroom: coches de lujo y giro 3D ---------- */
+.sr-car img { transition: opacity .5s; }
+.sr-3d { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; opacity: 0; pointer-events: none; transition: opacity .6s; touch-action: pan-y; cursor: grab; }
+.showroom.is-3d .sr-3d { pointer-events: auto; }
+.showroom.is-3d:has(.sr-car.ready3d) .sr-3d { opacity: 1; }
+.sr-car.ready3d img, .showroom.is-3d .sr-car[data-glb]:not(.on) img { opacity: 0; transition: none; }
+.showroom.grabbing .sr-3d { cursor: grabbing; }
+.sr-hint { position: absolute; left: 50%; bottom: 5%; transform: translateX(-50%); z-index: 3; display: none; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 99px; font-size: .78rem; color: #fff; background: rgba(18,6,31,.7); border: 1px solid var(--border-strong); backdrop-filter: blur(8px); white-space: nowrap; pointer-events: none; transition: opacity .4s; }
+.sr-hint span { color: var(--purple-300); font-weight: 700; animation: hintSwing 1.6s ease-in-out infinite; display: inline-block; }
+@keyframes hintSwing { 50% { transform: translateX(4px); } }
+.showroom.is-3d:has(.sr-car.on.ready3d) .sr-hint { display: inline-flex; }
+.sr-hint.gone { opacity: 0; }
+.sr-type { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sr-row { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.sr-price { flex: none; padding: 3px 10px; border-radius: 99px; font: 700 .82rem var(--font-display); background: var(--grad); color: #fff; white-space: nowrap; }
+@media (max-width: 1100px) { .sr-dots { display: none; } }
+
+/* Transición al cambiar de coche */
+.sr-stage::after { content: ""; position: absolute; inset: -10% -60%; z-index: 3; pointer-events: none; opacity: 0;
+  background: linear-gradient(calc(90deg * var(--dir, 1)), transparent 35%, rgba(232,121,249,.16) 46%, rgba(255,255,255,.28) 50%, rgba(168,85,247,.16) 54%, transparent 65%); }
+.showroom.swapping .sr-stage::after { animation: srSweep .9s cubic-bezier(.6,0,.3,1); }
+@keyframes srSweep { from { opacity: 1; transform: translateX(calc(45% * var(--dir, 1))); } to { opacity: 0; transform: translateX(calc(-45% * var(--dir, 1))); } }
+.showroom.swapping .speed-lines i { animation-duration: .45s; }
+.showroom.swapping .speed-lines { transform: scaleX(calc(var(--dir, 1))); }
+.showroom.swapping .sr-glow { animation: srGlow 1s ease-out; }
+@keyframes srGlow { 30% { opacity: 1; transform: scale(1.25); filter: blur(14px) brightness(1.6); } }
+.showroom.swapping .sr-rings i { animation-duration: 1.2s; }
+.sr-info.swap > * { animation: srInfo .6s cubic-bezier(.3,.7,.2,1); }
+.sr-info.swap .sr-row { animation-delay: .04s; }
+@keyframes srInfo { 0% { opacity: 1; transform: none; filter: none; } 30% { opacity: 0; transform: translateX(calc(-24px * var(--dir, 1))); filter: blur(4px); } 31% { opacity: 0; transform: translateX(calc(24px * var(--dir, 1))); } 100% { opacity: 1; transform: none; filter: none; } }
+.sr-info.swap .sr-price { animation: srPrice .7s cubic-bezier(.34,1.6,.5,1) .18s both; }
+@keyframes srPrice { from { transform: scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+.sr-btn:active { transform: scale(.9); }
+@media (prefers-reduced-motion: reduce) { .showroom.swapping .sr-stage::after, .sr-info.swap > *, .sr-info.swap .sr-price { animation: none; } }

@@ -435,21 +435,35 @@
     const go = (i) => {
       const next = (i + cars.length) % cars.length;
       if (next === cur && cars[cur].classList.contains("on")) return;
+      const dir = i < cur ? -1 : 1;
+      showroom.style.setProperty("--dir", dir);
       cars[cur].classList.remove("on"); cars[cur].classList.add("out");
       const prev = cars[cur];
       setTimeout(() => prev.classList.remove("out"), 900);
       cur = next;
       cars[cur].classList.add("on");
-      $("#srName").textContent = cars[cur].dataset.name;
-      $("#srType").textContent = cars[cur].dataset.type;
+      // la barra de info cambia con un barrido en la dirección del cambio
+      const info = $(".sr-info", showroom);
+      info.classList.remove("swap"); void info.offsetWidth; info.classList.add("swap");
+      setTimeout(() => {
+        $("#srName").textContent = cars[cur].dataset.name;
+        $("#srType").textContent = cars[cur].dataset.type;
+        $("#srPrice").textContent = cars[cur].dataset.price || "";
+      }, 180);
+      showroom.classList.remove("swapping"); void showroom.offsetWidth; showroom.classList.add("swapping");
+      clearTimeout(showroom._swapT);
+      showroom._swapT = setTimeout(() => showroom.classList.remove("swapping"), 1100);
+      showroom.dispatchEvent(new CustomEvent("srchange", { detail: { index: cur, dir } }));
       $$("button", dots).forEach((d, j) => d.classList.toggle("on", j === cur));
     };
-    const play = () => { clearInterval(timer); if (!reduceMotion) timer = setInterval(() => go(cur + 1), 4200); };
+    // los coches en 3D se quedan más tiempo para dar tiempo a girarlos
+    const play = () => { clearTimeout(timer); if (!reduceMotion) timer = setTimeout(() => { go(cur + 1); play(); }, cars[cur].dataset.glb ? 9000 : 4200); };
     $$("button", dots)[0].classList.add("on");
     $("#srPrev").addEventListener("click", () => { go(cur - 1); play(); });
     $("#srNext").addEventListener("click", () => { go(cur + 1); play(); });
     dots.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { go(+b.dataset.i); play(); } });
-    showroom.addEventListener("mouseenter", () => clearInterval(timer));
+    showroom.addEventListener("mouseenter", () => clearTimeout(timer));
+    showroom.addEventListener("pointerdown", () => { clearTimeout(timer); setTimeout(play, 6000); });
     showroom.addEventListener("mouseleave", play);
     play();
   }
