@@ -525,9 +525,12 @@ footer a{color:#fff}
 const FORM_ENDPOINT = "";
 
 /* Web3Forms (el mismo servicio que la web de APOLO MK): cada lead llega por email.
-   El destino es el correo con el que se creó la Access Key en https://web3forms.com.
-   Clave actual: 844dc97c… (facilitada por el cliente el 11/11/2026). */
-const WEB3FORMS_KEY = "844dc97c-3a93-4502-93f7-d934ccc6f5ab";
+   Cada Access Key envía al correo con el que se creó en https://web3forms.com (gratis).
+   Para avisar a varios correos: crea una clave por correo y añádela a la lista. */
+const WEB3FORMS_KEYS = [
+  "844dc97c-3a93-4502-93f7-d934ccc6f5ab",   // facilitada por el cliente el 11/11/2026
+  "8141c068-c89e-447d-9b48-633ab7d35753",   // APOLO MK (apollo.ai.contact@gmail.com), la misma de la web de la agencia
+];
 /* Píxel de Meta de manchacars.com. Déjalo vacío para no cargarlo. */
 const META_PIXEL_ID = "1322926622862376";
 
@@ -797,6 +800,7 @@ form.addEventListener("submit", async e => {
   const data = {
     vehiculo: c ? `${nombre(c)} ${c.version} · ${c.matricula || "ref. " + c.id} · ${eur(c.precio)}` : "Ninguno en concreto",
     vehiculo_url: c ? c.url : "",
+    coche: c ? {id:c.id, marca:c.marca, modelo:c.modelo, version:c.version, precio:c.precio, km:c.km, anio:c.anio, comb:c.comb, caja:c.caja, cv:c.cv, matricula:c.matricula} : null,
     tipo: p.tipo, presupuesto: p.presupuesto, combustible: p.combustible,
     cuando: val("cuando"), pago: val("pago"), entrega: val("entrega"),
     nombre: form.nombre.value.trim(), telefono: "+34" + tel, email: form.email.value.trim(),
@@ -806,38 +810,53 @@ form.addEventListener("submit", async e => {
   const btn = $("#send"); btn.disabled = true; btn.querySelector("span").textContent = "Enviando…";
   if(form.botcheck && form.botcheck.checked) return; // bot: se descarta en silencio
   try{
-    const envios = [];
-    if(WEB3FORMS_KEY){
-      const calidad = {caliente:"🔥 CALIENTE", templado:"🌤️ Templado", frio:"❄️ Frío"}[data.calidad_lead] || data.calidad_lead;
-      const u = data.utm, utm = Object.keys(u).length ? Object.entries(u).map(([k,x]) => `${k}=${x}`).join(" · ") : "—";
-      const mail = {
-        access_key: WEB3FORMS_KEY,
-        subject: `${calidad} · Nuevo lead Manchacars: ${data.nombre} · ${c ? nombre(c) : (data.tipo || "sin coche concreto")}`,
-        from_name: "Landing Manchacars",
-        "Calidad del lead": calidad,
-        "Nombre": data.nombre,
-        "Teléfono": data.telefono,
-        "Email": data.email || "—",
-        "Coche elegido": data.vehiculo,
-        "Ficha en la web": data.vehiculo_url || "—",
-        "Tipo buscado": data.tipo || "—",
-        "Presupuesto": data.presupuesto || "—",
-        "Combustible": data.combustible || "—",
-        "Cuándo compra": data.cuando || "—",
-        "Forma de pago": data.pago || "—",
-        "Entrega su coche": data.entrega || "—",
-        "Campaña (UTM)": utm,
-        "Fecha": new Date().toLocaleString("es-ES", {timeZone:"Europe/Madrid"})
-      };
-      if(data.email) mail.replyto = data.email;
-      envios.push(fetch("https://api.web3forms.com/submit", {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body:JSON.stringify(mail)})
-        .then(r => r.json().catch(() => ({})).then(j => { if(!r.ok || j.success === false) throw new Error(j.message || r.status); })));
-    }
-    if(FORM_ENDPOINT){
-      // Copia en Google Sheets. text/plain evita el preflight CORS, que Apps Script no admite
-      envios.push(fetch(FORM_ENDPOINT, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(data), redirect:"follow"})
-        .then(r => r.json().catch(() => ({ok:true})).then(j => { if(!r.ok || j.ok === false) throw new Error(j.error || r.status); })));
-    }
+    // Email: Web3Forms (una copia por cada clave/correo). Google Sheets (FORM_ENDPOINT), si está puesto, solo guarda el lead.
+    const calidad = {caliente:"🔥 CALIENTE", templado:"🟠 TEMPLADO", frio:"🔵 FRÍO"}[data.calidad_lead] || data.calidad_lead;
+    const consejo = {caliente:"Quiere comprar ya: llámale en menos de 5 minutos", templado:"Interés real: llámale hoy", frio:"Está mirando: llámale o escríbele por WhatsApp"}[data.calidad_lead] || "";
+    const telBonito = tel.replace(/(\d{3})(\d{3})(\d{3})/, "$1 $2 $3");
+    const nom1 = data.nombre.split(" ")[0];
+    const wa = `https://wa.me/34${tel}?text=${encodeURIComponent(`Hola ${nom1}, te escribo de Manchacars por tu solicitud${c ? ` del ${nombre(c)}` : ""}. ¿Cuándo te viene bien que hablemos?`)}`;
+    const u = data.utm;
+    const mail = {
+      subject: `${calidad.split(" ")[0]} Lead ${calidad.split(" ").slice(1).join(" ").toLowerCase()} · ${data.nombre} · ${c ? nombre(c) : (data.tipo || "busca coche")} · ${telBonito}`,
+      from_name: "Manchacars · Nuevo lead",
+      "①  CLIENTE": "━━━━━━━━━━━━━━━━━━",
+      "🔥 Calidad del lead": `${calidad} — ${consejo}`,
+      "👤 Nombre": data.nombre,
+      "📞 Teléfono": `+34 ${telBonito}`,
+      "💬 WhatsApp directo": wa,
+      "✉️ Email": data.email || "No lo ha dejado (es opcional)",
+      "②  COCHE QUE LE INTERESA": "━━━━━━━━━━━━━━━━━━",
+      "🚗 Coche": c ? `${nombre(c)} ${c.version}` : "Ninguno en concreto: busca opciones",
+      ...(c ? {
+        "💶 Precio": eur(c.precio),
+        "📋 Datos": [c.anio, c.km != null ? `${c.km.toLocaleString("es-ES")} km` : "", c.comb, c.caja, c.cv ? `${c.cv} CV` : ""].filter(Boolean).join(" · "),
+        "🔖 Matrícula": c.matricula || `ref. ${c.id}`,
+        "🔗 Ficha en la web": c.url,
+        "🖼️ Foto": `https://manchacars.apolomarketingyredes.com/img/coches/${c.id}.webp`
+      } : {}),
+      "③  LO QUE BUSCA": "━━━━━━━━━━━━━━━━━━",
+      "📅 ¿Cuándo quiere comprar?": data.cuando || "—",
+      "💳 Forma de pago": data.pago || "—",
+      "🔁 ¿Entrega su coche?": data.entrega || "—",
+      ...(c ? {} : {
+        "🚙 Tipo de coche": data.tipo || "—",
+        "💰 Presupuesto": data.presupuesto || "—",
+        "⛽ Combustible": data.combustible || "—"
+      }),
+      "④  DE DÓNDE VIENE": "━━━━━━━━━━━━━━━━━━",
+      "📣 Fuente": u.utm_source || "Landing (sin UTM)",
+      "🎯 Campaña": u.utm_campaign || "—",
+      "🎬 Anuncio": u.utm_content || "—",
+      "🕒 Recibido": new Date().toLocaleString("es-ES", {timeZone:"Europe/Madrid", dateStyle:"full", timeStyle:"short"}),
+      "📊 Todos los leads": "https://docs.google.com/spreadsheets/d/1uUPZ_NyRrQtLWxkOvoYtyq6EzYCr4MHOywWVOTJQrYg/edit"
+    };
+    if(data.email) mail.replyto = data.email;
+    const envia = key => fetch("https://api.web3forms.com/submit", {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body:JSON.stringify({access_key:key, ...mail})})
+      .then(r => r.json().catch(() => ({})).then(j => { if(!r.ok || j.success === false) throw new Error(j.message || r.status); }));
+    const envios = WEB3FORMS_KEYS.filter(Boolean).map(envia);
+    if(FORM_ENDPOINT) envios.push(fetch(FORM_ENDPOINT, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(data), redirect:"follow"}) // text/plain evita el preflight CORS
+      .then(r => r.json().catch(() => ({ok:true})).then(j => { if(!r.ok || j.ok === false) throw new Error(j.error || r.status); })));
     if(!envios.length) console.log("Lead (modo prueba, sin envío):", data);
     else {
       const rs = await Promise.allSettled(envios);
