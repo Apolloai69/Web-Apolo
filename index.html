@@ -1,783 +1,893 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>APOLO MK · Marketing en redes sociales desde Madrid</title>
-  <meta name="description" content="Agencia de marketing en redes sociales en Madrid. Garantizamos un mínimo de 50 leads al mes por cliente desde redes sociales. Pioneros en ChatGPT Ads. Trabajamos con empresas de todo el mundo.">
-  <meta name="theme-color" content="#4c1d95">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0414'/%3E%3Cg transform='translate%286 9%29 scale%28.0954%29'%3E%3Cpath d='M388 718 L585 300 L665 300 L866 718 L778 718 L628 405 L476 718 Z' transform='translate%28-380 -290%29' fill='%23fff'/%3E%3Cpath d='M497 668 C620 625 760 560 842 450 L870 466 C792 572 640 640 500 677 Z' transform='translate%28-380 -290%29' fill='%238b3dff' stroke='%230b0414' stroke-width='14'/%3E%3Cpolygon points='790%2C428 918%2C365 903%2C492 872%2C464 848%2C449' transform='translate%28-380 -290%29' fill='%238b3dff'/%3E%3C/g%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syncopate:wght@700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=3">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manchacars · Encuentra tu coche</title>
+<meta name="description" content="Coches de ocasión revisados y con garantía en Manchacars. Elige el tuyo o cuéntanos qué buscas y te llamamos.">
+<meta name="theme-color" content="#0e0d0d">
+<link rel="canonical" href="https://manchacars.apolomarketingyredes.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Manchacars">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://manchacars.apolomarketingyredes.com/">
+<meta property="og:title" content="Manchacars · Encuentra tu coche de ocasión">
+<meta property="og:description" content="Coches revisados, con garantía de 12 meses y financiación. Elige el tuyo y te llamamos.">
+<meta property="og:image" content="https://manchacars.apolomarketingyredes.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Manchacars, coches de ocasión revisados">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e84849; --red-dk:#c52f31; --red-deep:#9e1519; --red-soft:#fdeeee; --red-tint:#f9d6d6;
+  --ink:#141212; --night:#0e0d0d; --night-2:#1a1717; --bg:#f7f5f4; --card:#fff; --line:#ece6e4; --muted:#76706d; --text:#1c1918;
+  --ok:#22a05a;
+  --head:'Poppins',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+button,input,select{font:inherit;color:inherit}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.h{font-family:var(--head);font-weight:800;letter-spacing:-.02em;line-height:1.02}
+.r{color:var(--red)}
+
+/* ===== PANTALLA DE CARGA ===== */
+body.lock{overflow:hidden}
+#intro{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(ellipse at 50% 45%,#fff 0%,#fbf6f5 60%,#f6e9e8 100%);cursor:pointer;transition:transform .75s cubic-bezier(.7,0,.2,1)}
+#intro.out{transform:translateY(-100%)}
+#intro .lg{width:min(340px,72vw);opacity:0;transform:translateY(14px) scale(.96);animation:lgIn .7s .1s cubic-bezier(.2,.8,.2,1) forwards}
+#intro .tg{font:600 12px Inter,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#8a807d;opacity:0;animation:lgIn .6s .35s ease forwards}
+@keyframes lgIn{to{opacity:1;transform:none}}
+.road{position:relative;width:min(620px,84vw);height:8px;border-radius:8px;background:#efdfdd;margin-top:78px}
+.road:before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.9) 0 14px,transparent 14px 28px);opacity:.7}
+.road .fill{position:absolute;left:0;top:0;bottom:0;width:calc(var(--p,0)*100%);border-radius:8px;background:linear-gradient(90deg,var(--red-dk),var(--red));box-shadow:0 0 16px rgba(232,72,73,.6)}
+.road .icar{position:absolute;bottom:3px;left:calc(var(--p,0)*100%);width:150px;transform:translateX(-88%);transition:transform .9s cubic-bezier(.6,0,.3,1)}
+#intro.go .road .icar{transform:translateX(130vw)}
+.pct{font:700 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8a807d;margin-top:16px}
+.pct b{color:var(--red)}
+.isvg{display:block;width:100%;height:auto;overflow:visible}
+.isvg .wh{transform-box:fill-box;transform-origin:center;animation:spin .4s linear infinite}
+.isvg .bd{animation:bob .3s ease-in-out infinite alternate}
+.isvg .sp line{animation:speed .5s linear infinite}
+.isvg .sp line:nth-child(2){animation-delay:.15s}.isvg .sp line:nth-child(3){animation-delay:.3s}
+@keyframes bob{to{transform:translateY(-1px)}}
+@keyframes speed{0%{opacity:0;transform:translateX(10px)}40%{opacity:1}100%{opacity:0;transform:translateX(-28px)}}
+
+/* ===== HEADER ===== */
+.top{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+.top.sh{box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand img{height:30px;width:auto}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{text-decoration:none;font-weight:600;font-size:14px;padding:8px 12px;border-radius:999px;transition:background .2s,color .2s}
+.nav a:hover{background:var(--red-soft);color:var(--red-dk)}
+.nav .home{display:flex;align-items:center;gap:6px}.nav .home svg{width:16px;height:16px}
+.nav .cta{background:var(--red);color:#fff;box-shadow:0 6px 16px rgba(232,72,73,.35)}
+.nav .cta:hover{background:var(--red-dk);color:#fff}
+
+/* ===== HERO + FORM ===== */
+.hero{position:relative;overflow:hidden;background:radial-gradient(700px 420px at 80% 20%,rgba(232,72,73,.30),transparent 70%),radial-gradient(600px 400px at 10% 100%,rgba(232,72,73,.16),transparent 70%),var(--night);color:#fff;padding:34px 0 64px}
+.hero:after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M0 120L120 0' stroke='white' stroke-opacity='.035'/%3E%3C/svg%3E");pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,500px);gap:clamp(28px,5vw,64px);align-items:center}
+.kick{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#ffb3b3;background:rgba(232,72,73,.14);border:1px solid rgba(232,72,73,.35);padding:6px 12px;border-radius:999px}
+.kick i{width:7px;height:7px;border-radius:50%;background:var(--red);animation:ping 1.6s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(232,72,73,.7)}70%{box-shadow:0 0 0 9px rgba(232,72,73,0)}100%{box-shadow:0 0 0 0 rgba(232,72,73,0)}}
+.hl h1{font-size:clamp(38px,5.6vw,68px);margin:16px 0 0}
+.hl h1 .r{background:linear-gradient(90deg,#ff6b6c,var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 13px 7px 8px;font-size:13.5px;font-weight:600;opacity:0;transform:translateY(10px)}
+.ready .pill{animation:rise .6s cubic-bezier(.2,.8,.2,1) forwards}
+.ready .pill:nth-child(2){animation-delay:.1s}.ready .pill:nth-child(3){animation-delay:.2s}.ready .pill:nth-child(4){animation-delay:.3s}
+.pill b{width:20px;height:20px;border-radius:50%;background:var(--red);display:grid;place-items:center;flex:none}
+.pill svg{width:12px;height:12px;color:#fff}
+@keyframes rise{to{opacity:1;transform:none}}
+.see{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-weight:600;font-size:14.5px;color:#cfc9c7;text-decoration:none}
+.see b{color:#fff;border-bottom:2px solid var(--red)}
+.see svg{width:18px;height:18px;color:var(--red);animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(4px)}}
+
+.card{position:relative;background:var(--card);color:var(--text);border-radius:24px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.06);scroll-margin-top:80px}
+.chead{padding:20px 22px 0}
+.ch-row{position:relative}
+.chead h3{font-family:var(--head);font-weight:800;font-size:22px;letter-spacing:-.01em}
+.chead .st{font-size:13px;color:var(--muted);margin-top:2px}
+.stock-cta{position:absolute;right:0;top:4px;display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:700;font-size:12px;color:var(--red-dk);background:var(--red-soft);border:1px solid var(--red-tint);border-radius:999px;padding:4px 10px 4px 4px;transition:transform .2s,background .2s}
+.stock-cta:hover{transform:translateY(-2px);background:#fff}
+.stock-cta[hidden]{display:none}
+.sc-th{display:flex}
+.sc-th img{width:34px;height:22px;object-fit:contain;background:#fff;border-radius:999px;padding:2px;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.sc-th img+img{margin-left:-12px}
+.stock-cta svg{width:13px;height:13px;animation:nudge 1.4s ease-in-out infinite}
+.pbar{position:relative;height:6px;border-radius:6px;background:var(--red-soft);margin:22px 8px 0 0}
+.pbar .fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:6px;background:linear-gradient(90deg,var(--red-dk),var(--red));box-shadow:0 0 10px rgba(232,72,73,.5);transition:width .6s cubic-bezier(.3,.9,.3,1)}
+.pbar .mv{position:absolute;bottom:2px;left:0;width:46px;transform:translateX(-80%);transition:left .6s cubic-bezier(.3,.9,.3,1)}
+.pbar.pulse .fill{animation:pulse .6s ease}
+@keyframes pulse{40%{box-shadow:0 0 22px 3px rgba(232,72,73,.7)}}
+.csvg{display:block;width:100%;height:auto;overflow:visible}
+.csvg .wh{transform-box:fill-box;transform-origin:center;animation:spin .45s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.still .wh{animation-play-state:paused}
+
+.selbox{display:none;margin:16px 22px 0;padding:12px;border-radius:16px;background:var(--red-soft);border:1.5px solid var(--red-tint)}
+.selbox.on{display:block;animation:in .4s ease}
+.sb-row{display:flex;align-items:center;gap:12px}
+.selbox img{width:86px;height:56px;object-fit:contain;filter:drop-shadow(0 6px 6px rgba(0,0,0,.2))}
+.sb-txt{flex:1;min-width:0}
+.selbox b{display:block;font-family:var(--head);font-weight:700;font-size:16px;line-height:1.15}
+.selbox .sb-p{display:block;font-size:13px;font-weight:700;color:var(--red-dk);white-space:nowrap}
+.sb-act{display:flex;gap:4px;flex:none}
+.sb-act button{background:#fff;border:1px solid var(--red-tint);border-radius:999px;font-weight:600;font-size:12px;color:var(--red-dk);cursor:pointer;padding:6px 10px}
+.sb-act button:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.auto{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.auto span{display:inline-flex;align-items:center;gap:5px;background:#fff;border-radius:999px;padding:4px 10px 4px 5px;font-size:12px;font-weight:600;opacity:0;transform:scale(.7);animation:chip .4s cubic-bezier(.3,1.5,.5,1) forwards}
+.auto span:before,.ckd:before{content:"";width:16px;height:16px;border-radius:50%;background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/10px no-repeat;flex:none}
+@keyframes chip{to{opacity:1;transform:none}}
+
+.wiz{padding:18px 22px 20px;min-height:360px;display:flex;flex-direction:column}
+.step{display:none;flex:1;flex-direction:column}
+.step.on{display:flex;animation:in .38s cubic-bezier(.2,.8,.2,1)}
+@keyframes in{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+.q{font-family:var(--head);font-weight:800;font-size:22px;line-height:1.15;letter-spacing:-.01em;margin-bottom:14px}
+.ql{font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:2px 0 7px}
+.opts{display:grid;gap:8px}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{position:relative;overflow:hidden;display:flex;align-items:center;gap:11px;min-height:52px;padding:10px 13px;border:1.5px solid var(--line);border-radius:14px;background:#fff;font-weight:600;font-size:14.5px;cursor:pointer;user-select:none;transition:border-color .18s,background .18s,color .18s,transform .15s,box-shadow .18s}
+.opt label:hover{border-color:#f0b3b3;transform:translateY(-1px);box-shadow:0 6px 14px rgba(232,72,73,.08)}
+.opt label:active{transform:scale(.97)}
+.opt input:checked+label{border-color:var(--red);background:var(--red-soft);color:var(--red-dk);box-shadow:0 0 0 3px rgba(232,72,73,.13)}
+.opt input:checked+label:after{content:"";position:absolute;right:10px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:50%;background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat;animation:popin .3s cubic-bezier(.3,1.6,.5,1)}
+@keyframes popin{from{transform:scale(0)}}
+.opt input:focus-visible+label{outline:3px solid rgba(232,72,73,.35);outline-offset:2px}
+.c3 .opt label{justify-content:center;text-align:center;padding:9px 6px;min-height:46px;font-size:13.5px}
+.c3 .opt input:checked+label:after{display:none}
+.opt .ico{width:34px;height:34px;flex:none;color:var(--red)}
+.opt small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+/* animación al elegir */
+.rip{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(232,72,73,.28) 0%,rgba(232,72,73,.12) 60%,transparent 70%);transform:translate(-50%,-50%) scale(0);pointer-events:none;animation:rip .6s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rip{70%{opacity:1}to{transform:translate(-50%,-50%) scale(1);opacity:0}}
+.opt label.boom{animation:boing .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes boing{0%{transform:scale(.93)}55%{transform:scale(1.04)}100%{transform:scale(1)}}
+.opt label.boom .ico{animation:wiggle .5s ease}
+@keyframes wiggle{30%{transform:rotate(-10deg) scale(1.15)}60%{transform:rotate(6deg) scale(1.05)}}
+.spark{position:absolute;z-index:4;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:var(--red);pointer-events:none;animation:spark .65s cubic-bezier(.2,.8,.3,1) forwards}
+.spark.y{background:#ffb703}.spark.l{width:5px;height:12px;border-radius:3px}
+@keyframes spark{from{transform:translate(0,0) rotate(var(--r)) scale(1);opacity:1}to{transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(.2);opacity:0}}
+
+.field{margin-bottom:10px;position:relative}
+.field input{width:100%;height:54px;border:1.5px solid var(--line);border-radius:14px;padding:18px 14px 4px;font:500 16px Inter,sans-serif;color:var(--text);background:#fff;transition:border-color .18s,box-shadow .18s}
+.field label{position:absolute;left:15px;top:17px;font-size:15px;color:#9a918e;pointer-events:none;transition:all .18s}
+.field input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(232,72,73,.13)}
+.field input:focus+label,.field input:not(:placeholder-shown)+label{top:7px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.opt-tag{font-weight:500;opacity:.75;text-transform:none;letter-spacing:0}
+.fh{font-size:12px;color:var(--muted);margin:5px 2px 0}
+.field.okv input{border-color:var(--ok)}
+.field.okv:after{content:"✓";position:absolute;right:14px;top:16px;color:var(--ok);font-weight:800}
+.field.err input{border-color:var(--red)}
+.em{display:none;color:var(--red-dk);font-size:12.5px;font-weight:600;margin-top:4px}
+.err .em{display:block}.err .fh{display:none}
+.err{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin:4px 0 14px;cursor:pointer}
+.consent input{margin-top:2px;width:18px;height:18px;accent-color:var(--red);flex:none}
+.summary{display:flex;flex-wrap:wrap;gap:6px;margin:-4px 0 14px}
+.summary span{background:var(--red-soft);color:var(--red-dk);border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:600}
+
+.nav2{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px}
+.back{background:none;border:0;font-weight:600;font-size:14px;color:var(--muted);cursor:pointer;padding:8px 2px;visibility:hidden}
+.back.show{visibility:visible}
+.hint{font-size:12px;color:#b2a8a5}
+.nextb{display:none;background:var(--red);color:#fff;border:0;border-radius:999px;padding:11px 20px;font-weight:700;font-size:14px;cursor:pointer;animation:popin .3s;box-shadow:0 6px 16px rgba(232,72,73,.35)}
+.nextb:hover{background:var(--red-dk)}
+.nav2.ready .hint{display:none}.nav2.ready .nextb{display:block}
+.btn{position:relative;overflow:hidden;width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(180deg,#f05253,var(--red-dk));color:#fff;border:0;border-radius:16px;padding:16px 20px;font-family:var(--head);font-weight:800;font-size:19px;cursor:pointer;text-decoration:none;box-shadow:0 12px 28px rgba(232,72,73,.38);transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(232,72,73,.48)}
+.btn:active{transform:none}
+.btn:before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:shine 3.2s infinite}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.btn svg{width:26px;height:26px;flex:none;transition:transform .2s}
+.btn:hover svg{transform:translateX(4px)}
+.btn[disabled]{opacity:.7;cursor:wait}
+.trust{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--muted)}
+.trust span{display:flex;align-items:center;gap:4px}
+.trust svg{width:14px;height:14px;color:var(--ok)}
+.done{text-align:center;padding:26px 6px 10px}
+.done .ck{width:86px;height:86px;margin:0 auto 14px}
+.done .ck circle{stroke-dasharray:252;stroke-dashoffset:252;animation:draw .7s ease forwards}
+.done .ck path{stroke-dasharray:60;stroke-dashoffset:60;animation:draw .45s .55s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.done h4{font-family:var(--head);font-weight:800;font-size:30px;margin-bottom:8px}
+.done p{color:var(--muted)}
+.done .home-btn{display:inline-flex;margin-top:18px;font-weight:700;color:var(--red-dk);text-decoration:none;border-bottom:2px solid}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:90}
+
+/* ===== STOCK ===== */
+.stock{padding:56px 0 70px;scroll-margin-top:60px}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.shead h2{font-size:clamp(30px,4vw,46px)}
+.shead p{color:var(--muted);margin-top:6px}
+.vid-h{display:flex;align-items:center;gap:10px;margin:30px 0 14px;font-family:var(--head);font-weight:700;font-size:18px}
+.vid-h i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-style:normal;font-size:13px;box-shadow:0 0 0 6px rgba(232,72,73,.15)}
+.filters{position:sticky;top:64px;z-index:5;background:rgba(247,245,244,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);margin:34px -20px 0;padding:12px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.chips-f{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1 1 auto;min-width:0}
+.chips-f::-webkit-scrollbar{display:none}
+.chips-f button{flex:none;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-weight:600;font-size:13.5px;cursor:pointer;transition:all .2s}
+.chips-f button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.filters select,.filters input{height:38px;border:1.5px solid var(--line);border-radius:999px;background:#fff;padding:0 14px;font-size:13.5px;font-weight:500}
+.filters input{width:180px}
+.sort-row{flex:1 1 100%;display:flex;align-items:center;gap:10px;min-width:0}
+.sort-l{flex:none;display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.sort-l svg{width:16px;height:16px;color:var(--red)}
+.chips-f.sort button{padding:6px 12px;font-size:13px}
+.chips-f.sort button.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 6px 14px rgba(232,72,73,.3)}
+.count{font-size:13px;color:var(--muted);margin:16px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(262px,1fr));gap:18px;margin-top:14px}
+.car{position:relative;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(60,20,15,.07),0 0 0 1px var(--line);display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;opacity:0;transform:translateY(18px)}
+.car.in{opacity:1;transform:none}
+.car:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(60,20,15,.13),0 0 0 1px var(--line)}
+.car.sel{box-shadow:0 0 0 2.5px var(--red),0 22px 44px rgba(232,72,73,.22)}
+.c-img{position:relative;height:178px;display:grid;place-items:center;padding:18px 16px 22px;background:radial-gradient(ellipse at 50% 60%,#fff 0%,#f6f1f0 62%,#eee6e4 100%)}
+.c-img:before{content:"";position:absolute;left:12%;right:12%;bottom:16px;height:18px;border-radius:50%;background:radial-gradient(closest-side,rgba(40,10,5,.25),transparent)}
+.c-img img{position:relative;max-height:136px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 10px 10px rgba(40,10,5,.18));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.car:hover .c-img img{transform:scale(1.05) translateY(-3px)}
+.tagv{position:absolute;z-index:2;top:12px;left:12px;display:inline-flex;align-items:center;gap:5px;background:var(--ink);color:#fff;font-size:11px;font-weight:700;padding:4px 10px 4px 6px;border-radius:999px}
+.tagv i{width:14px;height:14px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-style:normal;font-size:7px}
+.fuel{position:absolute;z-index:2;top:12px;right:12px;font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.fuel.e{color:#1e6bd6}.fuel.h{color:var(--ok)}.fuel.g{color:#b37400}
+.c-bd{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
+.c-mk{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.c-md{font-family:var(--head);font-weight:800;font-size:21px;line-height:1.1;margin:2px 0 3px}
+.c-vr{font-size:12.5px;color:var(--muted);min-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-ch{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 12px}
+.c-ch span{font-size:11.5px;font-weight:600;background:#f4efee;border-radius:999px;padding:3px 9px}
+.c-ft{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:auto}
+.c-pr{font-family:var(--head);font-weight:800;font-size:24px;line-height:1}
+.c-pr small{display:block;font-family:Inter,sans-serif;font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px}
+.pick{display:inline-flex;align-items:center;gap:6px;border:0;cursor:pointer;font-weight:700;font-size:13.5px;padding:10px 14px;border-radius:999px;background:var(--red);color:#fff;box-shadow:0 8px 18px rgba(232,72,73,.3);transition:transform .15s,background .2s;white-space:nowrap}
+.pick:hover{transform:translateY(-2px);background:var(--red-dk)}
+.car.sel .pick{background:var(--ok);box-shadow:0 8px 18px rgba(34,160,90,.3)}
+.c-ln{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:12px;font-weight:600;color:var(--muted);text-decoration:none}
+.c-ln:hover{color:var(--red-dk)}
+.more{display:flex;justify-content:center;margin-top:26px}
+.more button{border:1.5px solid var(--ink);background:#fff;border-radius:999px;padding:12px 26px;font-weight:700;cursor:pointer;transition:all .2s}
+.more button:hover{background:var(--ink);color:#fff}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
+
+footer{background:var(--night);color:#a8a19e;font-size:13px;text-align:center;padding:30px 16px 34px}
+footer img{height:26px;margin:0 auto 12px;filter:brightness(0) invert(1);opacity:.9}
+footer a{color:#fff}
+.sticky{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;padding:10px 10px 10px 16px;border-radius:18px;background:rgba(20,18,18,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 12px 34px rgba(0,0,0,.3);display:flex;gap:10px;align-items:center;transform:translateY(140%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.sticky.show{transform:none}
+.sticky .t{font-size:12.5px;line-height:1.25;flex:1;color:#bdb5b2}
+.sticky .t b{display:block;font-family:var(--head);font-weight:700;font-size:15px;color:#fff}
+.sticky a{background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 18px;border-radius:999px;white-space:nowrap}
+
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr;gap:22px}
+  .card,.hl{max-width:560px;width:100%;margin:0 auto}
+  .see{display:none}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .top .wrap{height:58px}.brand img{height:24px}
+  .nav .txt{display:none}.nav a{padding:8px 10px}
+  .hero{padding:20px 0 40px}
+  .hl h1{font-size:34px}
+  .badges{gap:6px;margin-top:14px}.pill{font-size:12.5px;padding:6px 11px 6px 7px}
+  .wiz{padding:16px 16px 18px;min-height:380px}
+  .chead{padding:16px 16px 0}.selbox{margin:14px 16px 0}
+  .q{font-size:20px}
+  .stock-cta .l{display:none}
+  .stock-cta{top:27px}
+  .filters{top:58px;margin:26px -16px 0;padding:10px 16px}
+  .filters{position:static}
+  .filters input{width:100%;order:3;flex:1 1 100%}.filters select{flex:1}
+  .sort-row{order:4}
+  .grid{grid-template-columns:1fr 1fr;gap:10px}
+  .c-img{height:120px;padding:12px 8px 16px}.c-img img{max-height:92px}
+  .c-bd{padding:10px 11px 12px}.c-md{font-size:16px}.c-vr{font-size:11.5px}
+  .c-ch{gap:4px;margin:8px 0 10px}.c-ch span{font-size:10.5px;padding:2px 7px}
+  .c-ft{flex-direction:column;align-items:stretch;gap:8px}.c-pr{font-size:19px}
+  .pick{justify-content:center;padding:9px 10px;font-size:12.5px}
+  .tagv{top:8px;left:8px;font-size:10px}
+  .c-ln{font-size:10.5px;margin-top:8px;white-space:nowrap}.fuel{top:8px;right:8px;font-size:10px}
+  body{padding-bottom:84px}
+}
+@media (min-width:981px){.sticky{display:none}}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.pill,.car,.auto span{opacity:1!important;transform:none!important}.spark,.rip{display:none}#intro{display:none}}
+</style>
 </head>
-<body data-page="home">
-  <div class="preloader" id="preloader" aria-hidden="true"></div>
-  <div class="bg-noise"></div>
-  <div class="bg-grid"></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <div class="scroll-progress" aria-hidden="true"></div>
+<body class="lock">
 
-  <div id="site-header"></div>
+<!-- ===== PANTALLA DE CARGA ===== -->
+<div id="intro" role="presentation" title="Saltar">
+  <img class="lg" src="logo.png" alt="manchacars.com">
+  <div class="tg">Compra · Venta · Revisados</div>
+  <div class="road"><div class="fill"></div><div class="icar" id="i-car"><svg class="isvg" viewBox="0 0 260 96" aria-hidden="true">
+  <g class="sp" stroke="#e84849" stroke-width="4" stroke-linecap="round"><line x1="-6" y1="44" x2="-32" y2="44"/><line x1="-2" y1="58" x2="-36" y2="58"/><line x1="-8" y1="72" x2="-28" y2="72"/></g>
+  <ellipse cx="130" cy="88" rx="118" ry="6" fill="rgba(60,10,5,.18)"/>
+  <g class="bd">
+    <path d="M10 70v-12q0-8 8-10l40-8 34-24q8-5 18-5h66q12 0 21 7l30 24 20 4q13 3 13 15v9q0 6-6 6H16q-6 0-6-6z" fill="#e84849"/>
+    <path d="M10 66h240v6q0 6-6 6H16q-6 0-6-6z" fill="#c52f31"/>
+    <path d="M98 22q6-4 14-4h28v26H72zM148 18h20q10 0 17 6l24 20h-61z" fill="#2b3440"/>
+    <path d="M144 18v28" stroke="#e84849" stroke-width="5"/>
+    <path d="M100 26l-10 8M155 24l-6 10" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+    <path d="M236 54l14 4v6h-15z" fill="#ffe08a"/>
+    <path d="M12 52h8v8h-9z" fill="#7a0e12"/>
+    <rect x="118" y="50" width="14" height="3" rx="1.5" fill="#fff" opacity=".6"/><rect x="170" y="50" width="14" height="3" rx="1.5" fill="#fff" opacity=".6"/>
+  </g>
+  <g class="wh"><circle cx="64" cy="76" r="16" fill="#141212"/><circle cx="64" cy="76" r="8" fill="#d9d9d9"/><path d="M64 69v14M57 76h14" stroke="#777" stroke-width="2.4"/></g>
+  <g class="wh"><circle cx="202" cy="76" r="16" fill="#141212"/><circle cx="202" cy="76" r="8" fill="#d9d9d9"/><path d="M202 69v14M195 76h14" stroke="#777" stroke-width="2.4"/></g>
+</svg></div></div>
+  <div class="pct">Arrancando motores <b id="pct">0%</b></div>
+</div>
 
-  <main>
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="inicio">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="https://www.manchacars.com/" aria-label="Manchacars · Inicio"><img src="logo.png" alt="manchacars.com"></a>
+    <nav class="nav">
+      <a class="home" href="https://www.manchacars.com/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg><span class="txt">Inicio</span></a>
+      <a href="#coches" class="txt">Coches</a>
+      <a href="#formulario" class="cta">Quiero info</a>
+    </nav>
+  </div>
+</header>
 
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Agencia de marketing en redes sociales · Madrid</span>
-          <h1>
-            <span class="line"><span>Hacemos que tus</span></span>
-            <span class="line"><span class="grad-text">redes sociales</span></span>
-            <span class="line"><span>vendan cada mes</span></span>
-          </h1>
-          <p class="hero-sub">
-            Somos especialistas en <span class="typed-slot" id="typedSlot"><span class="typed-line"><span class="typed" id="typed">Instagram</span><span class="typed-emoji pop" id="typedEmoji" aria-hidden="true">📸</span></span></span>. Estrategia, contenido y publicidad en redes que garantizan
-            un mínimo de <strong style="color:#fff">50 leads al mes por cliente</strong> desde las redes sociales.
-          </p>
-          <div class="hero-ctas">
-            <a href="#contacto" class="btn btn-primary btn-lg magnetic">Quiero crecer en redes <span class="arrow">→</span></a>
-            <a href="#redes" class="btn btn-ghost btn-lg magnetic">Ver qué hacemos en cada red</a>
-          </div>
-          <div class="hero-socials" aria-label="Redes en las que trabajamos">
-            <span class="hs-label">Expertos en</span>
-            <a href="#redes" data-net="0" class="hs-ic" style="--c:#e1306c" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-            <a href="#redes" data-net="1" class="hs-ic" style="--c:#25f4ee" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.6 5 5"/></svg></a>
-            <a href="#redes" data-net="2" class="hs-ic" style="--c:#1877f2" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 8h-2a2 2 0 0 0-2 2v11M8 13h6"/><circle cx="12" cy="12" r="9"/></svg></a>
-            <a href="#redes" data-net="3" class="hs-ic" style="--c:#0a66c2" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></a>
-            <a href="#redes" data-net="4" class="hs-ic" style="--c:#10a37f" aria-label="ChatGPT"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M12 8.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z" fill="currentColor"/></svg></a>
-          </div>
-          <div class="hero-trust">
-            <span class="loc">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-              Sede en Madrid · Clientes en todo el mundo
-            </span>
-            <span class="loc">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-              Resultados garantizados por contrato
-            </span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="logo-stage" id="logoStage">
-            <div class="ls-glow"></div>
-            <div class="ls-ring r1"><span></span></div>
-            <div class="ls-ring r2"><span></span></div>
-            <svg class="hero-logo" viewBox="380 290 545 435" role="img" aria-label="Logotipo de APOLO Marketing">
-              <defs>
-                <linearGradient id="heroShine" gradientUnits="userSpaceOnUse" x1="380" y1="290" x2="560" y2="470">
-                  <stop offset="0" stop-color="#fff" stop-opacity="0"/>
-                  <stop offset=".5" stop-color="#e9d5ff" stop-opacity=".9"/>
-                  <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-                  <animateTransform attributeName="gradientTransform" type="translate" values="-400 -300; 700 400" dur="4.5s" begin="2.6s" repeatCount="indefinite"/>
-                </linearGradient>
-              </defs>
-              <g class="hl-a" mask="url(#apoloGap)">
-                <path class="hl-a-fill" d="M388 718 L585 300 L665 300 L866 718 L778 718 L628 405 L476 718 Z"/>
-                <path class="hl-a-shine" d="M388 718 L585 300 L665 300 L866 718 L778 718 L628 405 L476 718 Z" fill="url(#heroShine)"/>
-              </g>
-              <path class="hl-a-line" pathLength="1" d="M388 718 L585 300 L665 300 L866 718 L778 718 L628 405 L476 718 Z"/>
-              <g class="hl-arrow">
-                <path class="hl-shaft" d="M497 668 C620 625 760 560 842 450 L870 466 C792 572 640 640 500 677 Z"/>
-                <polygon class="hl-head" points="790,428 918,365 903,492 872,464 848,449"/>
-              </g>
-            </svg>
-            <div class="hero-word" aria-hidden="true">
-              <div class="hw-apolo">APOLO</div>
-              <div class="hw-mk"><i></i><span>MARKETING</span><i></i></div>
-            </div>
-            <span class="spark" style="--x:62%;--y:30%;--d:0s"></span>
-            <span class="spark" style="--x:70%;--y:22%;--d:.7s"></span>
-            <span class="spark" style="--x:78%;--y:16%;--d:1.4s"></span>
-            <span class="spark" style="--x:58%;--y:38%;--d:2.1s"></span>
-          </div>
-          <div class="float-card fc-1"><span class="ic">🚀</span><div><strong>Mín. 50 leads/mes</strong>por cliente en RRSS</div></div>
-          <div class="float-card fc-2"><span class="ic">📱</span><div><strong>5 canales</strong>trabajando para ti</div></div>
-          <div class="float-card fc-3"><span class="ic">📈</span><div><strong>Garantizado</strong>por contrato</div></div>
-        </div>
+<!-- ===== HERO + FORMULARIO ===== -->
+<section class="hero" id="formulario">
+  <div class="wrap">
+    <div class="hl">
+      <span class="kick"><i></i>Coches de ocasión · Ciudad Real</span>
+      <h1 class="h">Tu próximo coche,<br><span class="r">revisado y con garantía</span></h1>
+      <div class="badges">
+        <span class="pill"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b>Miles de coches vendidos</span>
+        <span class="pill"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b>100% revisados</span>
+        <span class="pill"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b>Garantía 12 meses</span>
+        <span class="pill"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b>Financiación</span>
       </div>
-    </section>
-
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" aria-label="Canales en los que trabajamos">
-      <div class="marquee-track">
-        <span class="marquee-item">Instagram <span class="star" data-mark></span></span>
-        <span class="marquee-item">TikTok <span class="star" data-mark></span></span>
-        <span class="marquee-item">Facebook <span class="star" data-mark></span></span><span class="marquee-item">Meta Ads <span class="star" data-mark></span></span>
-        <span class="marquee-item">ChatGPT Ads <span class="star" data-mark></span></span>
-        <span class="marquee-item">LinkedIn <span class="star" data-mark></span></span>
-        <span class="marquee-item">Community Management <span class="star" data-mark></span></span>
-        <span class="marquee-item">Influencers <span class="star" data-mark></span></span>
-        <span class="marquee-item">Instagram <span class="star" data-mark></span></span>
-        <span class="marquee-item">TikTok <span class="star" data-mark></span></span>
-        <span class="marquee-item">Facebook <span class="star" data-mark></span></span><span class="marquee-item">Meta Ads <span class="star" data-mark></span></span>
-        <span class="marquee-item">ChatGPT Ads <span class="star" data-mark></span></span>
-        <span class="marquee-item">LinkedIn <span class="star" data-mark></span></span>
-        <span class="marquee-item">Community Management <span class="star" data-mark></span></span>
-        <span class="marquee-item">Influencers <span class="star" data-mark></span></span>
-      </div>
+      <a class="see" href="#coches"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>¿Ya tienes uno en mente? <b>Mira todos los coches</b></a>
     </div>
 
-    <!-- ============ RESULTADOS GARANTIZADOS ============ -->
-    <section class="section" id="resultados">
-      <div class="container">
-        <div class="res-top">
-          <div class="section-head reveal">
-            <span class="eyebrow">Resultados, no promesas</span>
-            <h2>Leads que se convierten en <span class="grad-text">clientes que pagan</span></h2>
-            <p>No vendemos “alcance” ni “engagement” a secas. Nos comprometemos por contrato con un mínimo de 50 leads al mes por cliente desde redes sociales: personas reales interesadas en comprarte.</p>
-            <a href="#contacto" class="btn btn-primary magnetic">Quiero más clientes <span class="arrow">→</span></a>
-          </div>
-<div class="money-illu reveal d1" id="moneyIllu" role="img" aria-label="Ilustración: leads de redes sociales que se convierten en clientes y pagan a tu negocio">
-          <svg viewBox="0 0 540 350">
-            <defs>
-              <linearGradient id="regG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#2b0f52"/></linearGradient>
-              <linearGradient id="billG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6ee7b7"/><stop offset="1" stop-color="#10b981"/></linearGradient>
-              <linearGradient id="miCloth0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#6d28d9"/></linearGradient>
-              <linearGradient id="miCloth1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0abfc"/><stop offset="1" stop-color="#c026d3"/></linearGradient>
-              <linearGradient id="miCloth2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5b4fc"/><stop offset="1" stop-color="#4f46e5"/></linearGradient>
-              <filter id="miBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
-              <filter id="miGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              <clipPath id="miSlotClip"><rect x="0" y="-200" width="540" height="334"/></clipPath>
-              <g id="miBill">
-                <rect width="38" height="22" rx="3.5" fill="url(#billG)"/>
-                <rect x="3" y="3" width="32" height="16" rx="2" fill="none" stroke="#047857" stroke-width="1" opacity=".7"/>
-                <circle cx="19" cy="11" r="6" fill="#d1fae5" opacity=".75"/>
-                <text x="19" y="15" class="mi-eur">€</text>
-              </g>
-            </defs>
-            <ellipse cx="270" cy="304" rx="260" ry="24" fill="#8b3dff" opacity=".22" filter="url(#miBlur)"/>
-            <line x1="10" y1="302" x2="530" y2="302" stroke="rgba(196,181,253,.22)" stroke-width="1.5"/>
-            
-            <g class="mi-person" data-i="0" transform="translate(62 300)">
-              <ellipse class="mi-spot" cy="2" rx="44" ry="9"/>
-              <ellipse cy="3" rx="28" ry="5" fill="#000" opacity=".4"/>
-              <g class="mi-body" style="--d:0.0s">
-                <path d="M-14 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z M2 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" fill="#1b1640"/>
-                <ellipse cx="-9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/><ellipse cx="9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/>
-                <path d="M-20 -114 Q-31 -92 -27 -72" fill="none" stroke="#6d28d9" stroke-width="11" stroke-linecap="round"/>
-                <circle cx="-27" cy="-68" r="6" fill="#f2c9a5"/>
-                <path d="M-25 -60V-108Q-25 -128 -5 -128H5Q25 -128 25 -108V-60Q25 -56 21 -56H-21Q-25 -56 -25 -60Z" fill="url(#miCloth0)"/>
-                <path d="M-8 -128 0 -117 8 -128" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linejoin="round"/>
-                <rect x="-5" y="-136" width="10" height="10" fill="#f2c9a5"/>
-                <circle cy="-150" r="17" fill="#f2c9a5"/>
-                <path d="M-17 -151Q-17 -171 0 -170Q17 -171 17 -151Q12 -162 0 -161Q-12 -162 -17 -151Z" fill="#3b2314"/>
-                <circle cx="-6" cy="-150" r="1.9" fill="#1a1030"/><circle cx="6" cy="-150" r="1.9" fill="#1a1030"/>
-                <circle cx="-10" cy="-144" r="3" fill="#f472b6" opacity=".3"/><circle cx="10" cy="-144" r="3" fill="#f472b6" opacity=".3"/>
-                <path class="mi-smile" d="M-5 -143Q0 -139 5 -143" fill="none" stroke="#1a1030" stroke-width="1.6" stroke-linecap="round"/>
-                <g class="mi-arm">
-                  <path d="M16 -118L46 -101" stroke="#8b5cf6" stroke-width="11" stroke-linecap="round"/>
-                  <circle cx="49" cy="-99" r="6.5" fill="#f2c9a5"/>
-                  <g class="mi-held" transform="translate(42 -121) rotate(-12)"><use href="#miBill"/></g>
-                </g>
-              </g>
-              <g class="mi-badge" transform="translate(0 -194)">
-                <rect x="-34" y="-12" width="68" height="24" rx="12"/>
-                <text class="b-lead" y="4">Lead</text><text class="b-client" y="4">Cliente ✓</text>
-              </g>
-            </g>
-            <g class="mi-person" data-i="1" transform="translate(160 300)">
-              <ellipse class="mi-spot" cy="2" rx="44" ry="9"/>
-              <ellipse cy="3" rx="28" ry="5" fill="#000" opacity=".4"/>
-              <g class="mi-body" style="--d:0.45s">
-                <path d="M-14 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z M2 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" fill="#1b1640"/>
-                <ellipse cx="-9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/><ellipse cx="9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/>
-                <path d="M-20 -114 Q-31 -92 -27 -72" fill="none" stroke="#c026d3" stroke-width="11" stroke-linecap="round"/>
-                <circle cx="-27" cy="-68" r="6" fill="#c68b59"/>
-                <path d="M-25 -60V-108Q-25 -128 -5 -128H5Q25 -128 25 -108V-60Q25 -56 21 -56H-21Q-25 -56 -25 -60Z" fill="url(#miCloth1)"/>
-                <path d="M-8 -128 0 -117 8 -128" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linejoin="round"/>
-                <rect x="-5" y="-136" width="10" height="10" fill="#c68b59"/>
-                <circle cy="-150" r="17" fill="#c68b59"/>
-                <path d="M-17 -151Q-17 -171 0 -170Q17 -171 17 -151Q12 -162 0 -161Q-12 -162 -17 -151Z" fill="#1a1a1a"/>
-                <circle cx="-6" cy="-150" r="1.9" fill="#1a1030"/><circle cx="6" cy="-150" r="1.9" fill="#1a1030"/>
-                <circle cx="-10" cy="-144" r="3" fill="#f472b6" opacity=".3"/><circle cx="10" cy="-144" r="3" fill="#f472b6" opacity=".3"/>
-                <path class="mi-smile" d="M-5 -143Q0 -139 5 -143" fill="none" stroke="#1a1030" stroke-width="1.6" stroke-linecap="round"/>
-                <g class="mi-arm">
-                  <path d="M16 -118L46 -101" stroke="#e879f9" stroke-width="11" stroke-linecap="round"/>
-                  <circle cx="49" cy="-99" r="6.5" fill="#c68b59"/>
-                  <g class="mi-held" transform="translate(42 -121) rotate(-12)"><use href="#miBill"/></g>
-                </g>
-              </g>
-              <g class="mi-badge" transform="translate(0 -194)">
-                <rect x="-34" y="-12" width="68" height="24" rx="12"/>
-                <text class="b-lead" y="4">Lead</text><text class="b-client" y="4">Cliente ✓</text>
-              </g>
-            </g>
-            <g class="mi-person" data-i="2" transform="translate(258 300)">
-              <ellipse class="mi-spot" cy="2" rx="44" ry="9"/>
-              <ellipse cy="3" rx="28" ry="5" fill="#000" opacity=".4"/>
-              <g class="mi-body" style="--d:0.9s">
-                <path d="M-14 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z M2 -62h12v56a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" fill="#1b1640"/>
-                <ellipse cx="-9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/><ellipse cx="9" cy="-2" rx="10" ry="4" fill="#0d0a1f"/>
-                <path d="M-20 -114 Q-31 -92 -27 -72" fill="none" stroke="#4f46e5" stroke-width="11" stroke-linecap="round"/>
-                <circle cx="-27" cy="-68" r="6" fill="#8d5524"/>
-                <path d="M-25 -60V-108Q-25 -128 -5 -128H5Q25 -128 25 -108V-60Q25 -56 21 -56H-21Q-25 -56 -25 -60Z" fill="url(#miCloth2)"/>
-                <path d="M-8 -128 0 -117 8 -128" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linejoin="round"/>
-                <rect x="-5" y="-136" width="10" height="10" fill="#8d5524"/>
-                <circle cy="-150" r="17" fill="#8d5524"/>
-                <path d="M-17 -151Q-17 -171 0 -170Q17 -171 17 -151Q12 -162 0 -161Q-12 -162 -17 -151Z" fill="#0f0f0f"/>
-                <circle cx="-6" cy="-150" r="1.9" fill="#1a1030"/><circle cx="6" cy="-150" r="1.9" fill="#1a1030"/>
-                <circle cx="-10" cy="-144" r="3" fill="#f472b6" opacity=".3"/><circle cx="10" cy="-144" r="3" fill="#f472b6" opacity=".3"/>
-                <path class="mi-smile" d="M-5 -143Q0 -139 5 -143" fill="none" stroke="#1a1030" stroke-width="1.6" stroke-linecap="round"/>
-                <g class="mi-arm">
-                  <path d="M16 -118L46 -101" stroke="#818cf8" stroke-width="11" stroke-linecap="round"/>
-                  <circle cx="49" cy="-99" r="6.5" fill="#8d5524"/>
-                  <g class="mi-held" transform="translate(42 -121) rotate(-12)"><use href="#miBill"/></g>
-                </g>
-              </g>
-              <g class="mi-badge" transform="translate(0 -194)">
-                <rect x="-34" y="-12" width="68" height="24" rx="12"/>
-                <text class="b-lead" y="4">Lead</text><text class="b-client" y="4">Cliente ✓</text>
-              </g>
-            </g>
-            <g class="mi-register" id="miRegister">
-              <circle class="mi-reg-glow" cx="452" cy="212" r="78" fill="#a855f7" filter="url(#miBlur)"/>
-              <rect x="392" y="140" width="120" height="150" rx="18" fill="url(#regG)" stroke="#a78bfa" stroke-width="1.5"/>
-              <path d="M410 141Q395 141 393 158V200Q420 150 470 141Z" fill="#fff" opacity=".07"/>
-              <rect x="410" y="128" width="84" height="12" rx="6" fill="#0a0414" stroke="#a78bfa" stroke-width="1.2"/>
-              <rect x="420" y="132" width="64" height="3" rx="1.5" fill="#c084fc" opacity=".55"/>
-              <rect class="mi-screen-bg" x="404" y="152" width="96" height="76" rx="10" fill="#0b0418" stroke="rgba(167,139,250,.6)"/>
-              <text x="412" y="166" class="mi-cap">INGRESOS DEL MES</text>
-              <text x="452" y="188" class="mi-screen" id="miTotal">0 €</text>
-              <g id="miBars"><rect class="mi-bar" x="411.0" y="215" width="6" height="7" rx="1.5"/><rect class="mi-bar" x="420.6" y="212" width="6" height="10" rx="1.5"/><rect class="mi-bar" x="430.2" y="213" width="6" height="9" rx="1.5"/><rect class="mi-bar" x="439.8" y="209" width="6" height="13" rx="1.5"/><rect class="mi-bar" x="449.4" y="207" width="6" height="15" rx="1.5"/><rect class="mi-bar" x="459.0" y="208" width="6" height="14" rx="1.5"/><rect class="mi-bar" x="468.6" y="204" width="6" height="18" rx="1.5"/><rect class="mi-bar" x="478.2" y="201" width="6" height="21" rx="1.5"/><rect class="mi-bar" x="487.8" y="198" width="6" height="24" rx="1.5"/></g>
-              <use href="#apolo-mark" x="437" y="236" width="30" height="24"/>
-              <text x="452" y="278" class="mi-clients" id="miClients">0 clientes nuevos</text>
-            </g>
-            <g id="miCoins"><g class="mi-coin" transform="translate(338 296)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(362 296)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(338 291)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(362 291)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(338 286)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(362 286)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(338 281)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(362 281)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(338 276)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g><g class="mi-coin" transform="translate(362 276)"><g><rect x="-10" y="-4" width="20" height="4" fill="#b45309"/><ellipse cy="-4" rx="10" ry="3.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/></g></g></g>
-            <text x="452" y="330" class="mi-label">Tu negocio</text>
-            <g id="miFx"></g>
-            <g id="miFlights"></g>
-            <g id="miSlot" clip-path="url(#miSlotClip)"></g>
-          </svg>
+    <div class="card" id="card">
+      <div class="chead">
+        <div class="ch-row">
+          <h3 id="ch-t">Encuentra tu coche</h3>
+          <div class="st" id="ch-s">Paso 1 · menos de 1 minuto</div>
+          <a class="stock-cta" id="stock-cta" href="#coches"><span class="sc-th" id="sc-th"></span><span class="l">Ver coches</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
         </div>
+        <div class="pbar"><div class="fill" id="pfill"></div><div class="mv" id="pcar" data-car></div></div>
+      </div>
+      <div class="selbox" id="selbox">
+        <div class="sb-row">
+          <img id="sb-img" src="data:," alt="">
+          <div class="sb-txt"><b id="sb-n"></b><span class="sb-p" id="sb-d"></span></div>
+          <div class="sb-act"><button type="button" id="sb-c">Cambiar</button><button type="button" id="sb-x" aria-label="Quitar coche">✕</button></div>
         </div>
+        <div class="auto" id="sb-auto"></div>
+      </div>
 
-        <div class="stats">
-          <div class="stat featured reveal">
-            <div class="num"><span class="count" data-to="50">0</span>+</div>
-            <p>leads cualificados al mes por cliente en redes sociales, como mínimo garantizado</p>
-          </div>
-          <div class="stat reveal d1">
-            <div class="num grad-text"><span class="count" data-to="5">0</span></div>
-            <p>canales gestionados: Instagram, TikTok, Facebook, LinkedIn y ChatGPT</p>
-          </div>
-          <div class="stat reveal d2">
-            <div class="num grad-text"><span class="count" data-to="30">0</span> días</div>
-            <p>para ver tus primeros resultados medibles</p>
-          </div>
-          <div class="stat reveal d3">
-            <div class="num grad-text"><span class="count" data-to="24">0</span>/7</div>
-            <p>monitorización y optimización de campañas</p>
+      <form class="wiz" id="wiz" novalidate>
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none">
+        <div class="step" data-step="tipo">
+          <div class="q">¿Qué coche buscas?</div>
+          <div class="opts c2">
+            <div class="opt"><input type="radio" name="tipo" id="t1" value="Compacto / utilitario"><label for="t1"><svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M6 31v-6l5-2 7-7h12l7 7 5 2v6z"/><circle cx="14" cy="32" r="4" fill="#fff"/><circle cx="35" cy="32" r="4" fill="#fff"/></svg><span>Compacto<small>ciudad y día a día</small></span></label></div>
+            <div class="opt"><input type="radio" name="tipo" id="t2" value="SUV"><label for="t2"><svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M5 32v-8l6-2 6-8h15l7 8 5 2v8z"/><circle cx="14" cy="33" r="4.5" fill="#fff"/><circle cx="35" cy="33" r="4.5" fill="#fff"/></svg><span>SUV<small>alto y versátil</small></span></label></div>
+            <div class="opt"><input type="radio" name="tipo" id="t3" value="Familiar / monovolumen"><label for="t3"><svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M4 31v-7l5-2 5-7h22l6 7 3 2v7z"/><circle cx="13" cy="32" r="4" fill="#fff"/><circle cx="36" cy="32" r="4" fill="#fff"/></svg><span>Familiar<small>espacio y maletero</small></span></label></div>
+            <div class="opt"><input type="radio" name="tipo" id="t4" value="4x4 / todoterreno"><label for="t4"><svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M5 33V20l5-1 3-7h20l4 7 6 1v13z"/><circle cx="14" cy="34" r="5" fill="#fff"/><circle cx="35" cy="34" r="5" fill="#fff"/></svg><span>4x4<small>campo y 7 plazas</small></span></label></div>
+            <div class="opt" style="grid-column:1/-1"><input type="radio" name="tipo" id="t5" value="Berlina / premium"><label for="t5"><svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M3 30v-4l8-3 8-7h11l8 7 7 2v5z"/><circle cx="13" cy="31" r="4" fill="#fff"/><circle cx="36" cy="31" r="4" fill="#fff"/></svg><span>Berlina o premium<small>BMW, Mercedes, Tesla…</small></span></label></div>
           </div>
         </div>
 
-        <div class="guarantee reveal">
-          <div class="g-left">
-            <div class="shield" data-mark></div>
-            <div>
-              <h3>Garantía APOLO</h3>
-              <p>50 leads al mes es nuestro mínimo, no nuestro techo. Si un mes no alcanzamos los 50 leads desde tus redes sociales, seguimos trabajando sin coste hasta conseguirlo.</p>
-            </div>
+        <div class="step" data-step="presupuesto">
+          <div class="q">¿Cuánto quieres gastar?</div>
+          <div class="opts c2">
+            <div class="opt"><input type="radio" name="presupuesto" id="b1" value="Hasta 8.000 €" data-s="1"><label for="b1">Hasta 8.000 €</label></div>
+            <div class="opt"><input type="radio" name="presupuesto" id="b2" value="8.000 – 12.000 €" data-s="2"><label for="b2">8.000 – 12.000 €</label></div>
+            <div class="opt"><input type="radio" name="presupuesto" id="b3" value="12.000 – 18.000 €" data-s="2"><label for="b3">12.000 – 18.000 €</label></div>
+            <div class="opt"><input type="radio" name="presupuesto" id="b4" value="18.000 – 25.000 €" data-s="3"><label for="b4">18.000 – 25.000 €</label></div>
+            <div class="opt"><input type="radio" name="presupuesto" id="b5" value="Más de 25.000 €" data-s="3"><label for="b5">Más de 25.000 €</label></div>
+            <div class="opt"><input type="radio" name="presupuesto" id="b6" value="Aún no lo sé" data-s="1"><label for="b6">Aún no lo sé</label></div>
           </div>
-          <a href="#contacto" class="btn btn-primary magnetic">Activar mi garantía <span class="arrow">→</span></a>
+        </div>
+
+        <div class="step" data-step="combustible">
+          <div class="q">¿Gasolina, diésel…?</div>
+          <div class="opts c2">
+            <div class="opt"><input type="radio" name="combustible" id="k1" value="Gasolina"><label for="k1">⛽ Gasolina</label></div>
+            <div class="opt"><input type="radio" name="combustible" id="k2" value="Diésel"><label for="k2">🛢️ Diésel</label></div>
+            <div class="opt"><input type="radio" name="combustible" id="k3" value="Híbrido"><label for="k3">🍃 Híbrido</label></div>
+            <div class="opt"><input type="radio" name="combustible" id="k4" value="Eléctrico"><label for="k4">⚡ Eléctrico</label></div>
+            <div class="opt"><input type="radio" name="combustible" id="k5" value="GLP"><label for="k5">🔵 GLP</label></div>
+            <div class="opt"><input type="radio" name="combustible" id="k6" value="Me da igual"><label for="k6">🤷 Me da igual</label></div>
+          </div>
+        </div>
+
+        <div class="step" data-step="plan">
+          <div class="q" id="q-plan">Tres toques y listo</div>
+          <div class="ql">¿Cuándo lo quieres?</div>
+          <div class="opts c3">
+            <div class="opt"><input type="radio" name="cuando" id="u1" value="Ya mismo" data-s="3"><label for="u1">Ya mismo</label></div>
+            <div class="opt"><input type="radio" name="cuando" id="u2" value="En 1–3 meses" data-s="2"><label for="u2">1 – 3 meses</label></div>
+            <div class="opt"><input type="radio" name="cuando" id="u3" value="Solo mirando" data-s="0"><label for="u3">Solo miro</label></div>
+          </div>
+          <div class="ql" style="margin-top:14px">¿Cómo lo pagarías?</div>
+          <div class="opts c3">
+            <div class="opt"><input type="radio" name="pago" id="g1" value="Al contado" data-s="2"><label for="g1">Contado</label></div>
+            <div class="opt"><input type="radio" name="pago" id="g2" value="Financiado" data-s="2"><label for="g2">Financiado</label></div>
+            <div class="opt"><input type="radio" name="pago" id="g3" value="Aún no lo sé" data-s="1"><label for="g3">No lo sé</label></div>
+          </div>
+          <div class="ql" style="margin-top:14px">¿Entregas tu coche actual?</div>
+          <div class="opts c3">
+            <div class="opt"><input type="radio" name="entrega" id="e1" value="Sí" data-s="1"><label for="e1">Sí</label></div>
+            <div class="opt"><input type="radio" name="entrega" id="e2" value="No" data-s="0"><label for="e2">No</label></div>
+            <div class="opt"><input type="radio" name="entrega" id="e3" value="Quizá" data-s="0"><label for="e3">Quizá</label></div>
+          </div>
+        </div>
+
+        <div class="step" data-step="contacto">
+          <div class="q">¿A quién llamamos?</div>
+          <div class="summary" id="summary"></div>
+          <div class="field" id="f-name"><input type="text" name="nombre" id="in-n" placeholder=" " autocomplete="given-name"><label for="in-n">Nombre</label><div class="em">Escribe tu nombre.</div></div>
+          <div class="field" id="f-phone"><input type="tel" name="telefono" id="in-t" placeholder=" " autocomplete="tel" inputmode="tel"><label for="in-t">Teléfono (WhatsApp)</label><div class="em">Teléfono no válido (9 cifras).</div></div>
+          <div class="field" id="f-email"><input type="email" name="email" id="in-e" placeholder=" " autocomplete="email" inputmode="email"><label for="in-e">Correo electrónico <span class="opt-tag">(opcional)</span></label><div class="fh">🔒 Solo para enviarte la propuesta. Nada de promociones.</div><div class="em">Correo no válido.</div></div>
+          <label class="consent" id="f-consent"><input type="checkbox" name="consentimiento" value="si"><span>Acepto que Manchacars me contacte sobre mi solicitud según su <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.<span class="em">Necesitamos tu permiso para contactarte.</span></span></label>
+          <button class="btn" type="submit" id="send"><span>Quiero mi propuesta</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <div class="trust">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Sin compromiso</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Respuesta rápida</span>
+          </div>
+        </div>
+
+        <div class="step" data-step="done">
+          <div class="done">
+            <svg class="ck" viewBox="0 0 90 90" fill="none" stroke="#e84849" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="45" cy="45" r="40"/><path d="M27 46l12 12 24-26"/></svg>
+            <h4>¡Recibido!</h4>
+            <p id="done-txt">Te llamamos muy pronto.</p>
+            <a class="home-btn" href="https://www.manchacars.com/">Ir a manchacars.com →</a>
+          </div>
+        </div>
+
+        <div class="nav2" id="nav2">
+          <button type="button" class="back" id="back">← Atrás</button>
+          <span class="hint" id="hint">Toca una opción</span>
+          <button type="button" class="nextb" id="nextb">Siguiente →</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COCHES ===== -->
+<section class="stock" id="coches">
+  <div class="wrap">
+    <div class="shead">
+      <div><h2 class="h">Nuestros <span class="r">coches</span></h2><p>Pulsa «¡Lo quiero!» y lo preseleccionamos en el formulario.</p></div>
+    </div>
+
+    <div class="vid-h"><i>▶</i>Los de nuestros vídeos</div>
+    <div class="grid" id="g-vid"></div>
+
+    <div class="filters" id="filters">
+      <div class="chips-f" id="f-tipo">
+        <button type="button" class="on" data-t="">Todos</button>
+        <button type="button" data-t="Compacto">Compactos</button>
+        <button type="button" data-t="SUV">SUV</button>
+        <button type="button" data-t="4x4">4x4</button>
+        <button type="button" data-t="Familiar">Familiares</button>
+        <button type="button" data-t="Berlina">Berlinas</button>
+      </div>
+      <select id="f-comb" aria-label="Combustible"><option value="">Combustible</option><option>Gasolina</option><option>Diésel</option><option value="Híbrido">Híbrido</option><option>Eléctrico</option><option>GLP</option></select>
+      <input type="search" id="f-q" placeholder="Buscar marca o modelo" aria-label="Buscar">
+      <div class="sort-row">
+        <span class="sort-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M3 16l4 4 4-4M17 20V4M13 8l4-4 4 4"/></svg>Ordenar</span>
+        <div class="chips-f sort" id="f-sort" role="radiogroup" aria-label="Ordenar coches">
+          <button type="button" class="on" data-s="rel" role="radio" aria-checked="true">Recomendados</button>
+          <button type="button" data-s="pa" role="radio" aria-checked="false">💶 Menos precio</button>
+          <button type="button" data-s="pd" role="radio" aria-checked="false">💶 Más precio</button>
+          <button type="button" data-s="km" role="radio" aria-checked="false">🛣️ Menos km</button>
+          <button type="button" data-s="kmd" role="radio" aria-checked="false">🛣️ Más km</button>
+          <button type="button" data-s="new" role="radio" aria-checked="false">📅 Más nuevos</button>
+          <button type="button" data-s="old" role="radio" aria-checked="false">📅 Más antiguos</button>
         </div>
       </div>
-    </section>
+    </div>
+    <p class="count" id="count"></p>
+    <div class="grid" id="g-all"></div>
+    <div class="more" id="more"><button type="button">Ver más coches</button></div>
+  </div>
+</section>
 
-    <!-- ============ REDES SOCIALES (ESPECIALIDAD) ============ -->
-    <section class="section" id="redes" style="padding-top:40px">
-      <div class="wm wm-right" data-mark aria-hidden="true"></div>
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow"><span class="dot"></span> Nuestra especialidad</span>
-          <h2>Las redes sociales son <span class="grad-text">nuestro ADN</span></h2>
-          <p>No somos una agencia que “también hace redes”. Vivimos en ellas: estrategia, contenido, publicidad y comunidad en cada plataforma donde está tu cliente.</p>
-        </div>
+<footer>
+  <img src="logo.png" alt="manchacars.com">
+  <div>Manchacars · Arroyo Pellejero, 5 · Torralba de Calatrava (Ciudad Real)</div>
+  <div style="margin-top:6px"><a href="tel:+34926841483">926 84 14 83</a> · <a href="mailto:ventas@manchacars.com">ventas@manchacars.com</a> · <a href="https://www.manchacars.com/">manchacars.com</a> · <a href="privacidad.html">Privacidad</a></div>
+</footer>
 
-        <div class="net-tabs reveal" role="tablist" aria-label="Elige una red social" id="netTabs"></div>
+<div class="sticky" id="sticky"><div class="t" id="sticky-t"><b>Encuentra tu coche</b>Menos de 1 minuto</div><a href="#formulario" id="sticky-a">Empezar</a></div>
+<canvas id="confetti"></canvas>
 
-        <div class="net-stage reveal">
-          <div class="net-panel" id="netPanel" role="tabpanel" aria-live="polite"></div>
-          <div class="phone" aria-hidden="true">
-            <div class="phone-notch"></div>
-            <div class="ph-head">
-              <span class="ph-avatar" data-mark></span>
-              <div><strong>apolo.mk</strong><small id="phNet">Instagram · Patrocinado</small></div>
-            </div>
-            <div class="ph-media" id="phMedia">
-              <span class="ph-emoji" id="phEmoji">📸</span>
-              <span class="ph-play">▶</span>
-            </div>
-            <div class="ph-actions">
-              <span class="ph-like" id="phLike">♥</span>
-              <span><b id="phLikes">12.480</b> me gusta</span>
-            </div>
-            <div class="ph-cta" id="phCta">Más información →</div>
-            <div class="ph-comments" id="phComments"></div>
-            <div class="ph-toast" id="phToast">🔔 Nuevo lead recibido</div>
-          </div>
-        </div>
+<script src="coches.js"></script>
+<script>
+/* ===================== CONFIG =====================
+   FORM_ENDPOINT: URL /exec del Apps Script que guarda los leads en Google Sheets (ver apps-script-leads.gs).
+   Vacío = modo prueba (muestra la confirmación y escribe el lead en la consola). */
+const FORM_ENDPOINT = "";
 
-        <div class="social360">
-          <div class="s360 reveal"><span class="s-ic">🧭</span><h3>Estrategia social</h3><p>Plan por plataforma, público objetivo, tono de marca y objetivos mensuales medibles.</p></div>
-          <div class="s360 reveal d1"><span class="s-ic">🎬</span><h3>Creación de contenido</h3><p>Reels, TikToks, carruseles, stories y vídeos producidos por nuestro equipo creativo.</p></div>
-          <div class="s360 reveal d2"><span class="s-ic">🎯</span><h3>Social Ads</h3><p>Campañas pagadas en Meta, TikTok y LinkedIn optimizadas para generar leads.</p></div>
-          <div class="s360 reveal"><span class="s-ic">💬</span><h3>Community management</h3><p>Respondemos comentarios y mensajes directos y convertimos conversaciones en clientes.</p></div>
-          <div class="s360 reveal d1"><span class="s-ic">⭐</span><h3>Influencers y creadores</h3><p>Colaboraciones con creadores de tu nicho que generan confianza y contenido para anuncios.</p></div>
-          <div class="s360 reveal d2"><span class="s-ic">📊</span><h3>Analítica e informes</h3><p>Informe mensual con visitas, leads, coste por lead y retorno de cada red social.</p></div>
-        </div>
+/* Web3Forms (el mismo servicio que la web de APOLO MK): cada lead llega por email.
+   El destino es el correo con el que se creó la Access Key en https://web3forms.com.
+   Clave actual: 844dc97c… (facilitada por el cliente el 11/11/2026). */
+const WEB3FORMS_KEY = "844dc97c-3a93-4502-93f7-d934ccc6f5ab";
+/* Píxel de Meta de manchacars.com. Déjalo vacío para no cargarlo. */
+const META_PIXEL_ID = "1322926622862376";
 
-        <div class="guarantee reveal">
-          <div class="g-left">
-            <div class="shield" data-mark></div>
-            <div>
-              <h3>¿Tus redes no te traen clientes?</h3>
-              <p>Te hacemos una auditoría gratuita de tus perfiles y campañas, y te decimos qué cambiar.</p>
-            </div>
-          </div>
-          <a href="#contacto" class="btn btn-primary magnetic">Auditar mis redes gratis <span class="arrow">→</span></a>
-        </div>
-      </div>
-    </section>
+/* Coches que salen en los vídeos de la campaña: aparecen primero, en este orden. */
+/* Vídeos "Video Lux 1-5" y "Manchacars 1-8". El SUV negro 3304 NBX de los Video Lux no está publicado en manchacars.com. */
+const DESTACADOS = [
+  {id:4574, video:"Video Lux 1"},   // YOOUDOOO 6 Adventurer (4x4 verde)
+  {id:4134, video:"Video Lux 1"},   // BMW Serie 1 116d · 9216-NFT
+  {id:4083, video:"Video Lux 1"},   // Mercedes CLA 180 AMG Line · 2495-NFF
+  {id:3953, video:"Video Lux 1"},   // Bestune T90 (SUV blanco nuevo)
+  {id:4656, video:"Manchacars 8"},  // Ford EcoSport ST Line · 3682-MDY
+  {id:4614, video:"Manchacars 8"},  // SEAT León FR 25 Aniversario
+  {id:4674, video:"Manchacars 8"},  // Opel Corsa 1.5D · 0982-LNK
+  {id:4594, video:"Manchacars 8"},  // Renault Captur GLP · 5293-LYB
+  {id:4688, video:"Manchacars 8"}   // Peugeot 3008 GT Line · 5678-KPT
+];
 
-    <!-- ============ SERVICIOS ============ -->
-    <section class="section" id="servicios" style="padding-top:40px">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Servicios</span>
-          <h2>Las redes en el centro, <span class="grad-text">todo lo demás a su servicio</span></h2>
-          <p>Nuestro servicio principal es el marketing en redes sociales. La web y la imagen de marca las diseñamos para que cada campaña convierta más.</p>
-        </div>
+/* ===================== utilidades ===================== */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const eur = n => n == null ? "Consultar" : String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " €";
+const kmf = n => n == null ? null : String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " km";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const track = (ev, p) => { try{ if(window.fbq) fbq("trackCustom", ev, p || {}); }catch(_){} };
+const img = c => `img/coches/${c.id}.webp`;
+const COCHES = (window.COCHES || []);
+const byId = id => COCHES.find(c => c.id === +id);
+const FEAT = DESTACADOS.map(d => byId(d.id)).filter(Boolean);
+const featIds = new Set(FEAT.map(c => c.id));
+const nombre = c => `${c.marca} ${c.modelo}`;
 
-        <div class="services">
-          <article class="card highlight main-service tilt reveal">
-            <span class="badge">Servicio principal</span>
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8-8-2Z"/></svg></div>
-            <h3>Marketing y Publicidad en Redes Sociales</h3>
-            <p>Gestión integral de tus redes y campañas de alto rendimiento en Instagram, TikTok, Facebook y LinkedIn, más ChatGPT Ads, orientadas a captar leads reales. Con resultados garantizados por contrato.</p>
-            <div class="ms-stats">
-              <div><strong>50+</strong><span>leads/mes mín.</span></div>
-              <div><strong>5</strong><span>canales</span></div>
-              <div><strong>24/7</strong><span>optimización</span></div>
-            </div>
-            <ul class="two-col">
-              <li>Estrategia y segmentación avanzada</li>
-              <li>Reels, TikToks y creatividades</li>
-              <li>Campañas en Meta, TikTok y LinkedIn</li>
-              <li>Community management diario</li>
-              <li>Embudos de captación y retargeting</li>
-              <li>Influencers y microcreadores</li>
-              <li>Integración de leads con tu CRM</li>
-              <li>Informes mensuales de resultados</li>
-            </ul>
-            <a href="#contacto" class="btn btn-white magnetic">Quiero mínimo 50 leads desde redes <span class="arrow">→</span></a>
-          </article>
+/* Meta Pixel */
+if(META_PIXEL_ID){
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID); fbq('track', 'PageView');
+}
 
-          <article class="card tilt reveal d1">
-            <span class="badge soft">Complementa tus redes</span>
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg></div>
-            <h3>Diseño y Desarrollo Web</h3>
-            <p>Landing pages y webs rápidas pensadas para convertir en clientes el tráfico que generamos en redes.</p>
-            <a href="#contacto" class="link">Pedir propuesta web <span>→</span></a>
-          </article>
+/* ===== PANTALLA DE CARGA: turismo recorriendo la barra ===== */
+(function intro(){
+  const el = $("#intro"), pct = $("#pct");
+  let loaded = document.readyState === "complete", done = false;
+  addEventListener("load", () => loaded = true);
+  const finish = () => {
+    if(done) return; done = true;
+    el.style.setProperty("--p", 1); pct.textContent = "100%";
+    el.classList.add("go");
+    setTimeout(() => { el.classList.add("out"); document.body.classList.remove("lock"); document.body.classList.add("ready"); updateSticky(); }, reduce ? 0 : 650);
+    setTimeout(() => el.remove(), reduce ? 50 : 1450);
+  };
+  el.addEventListener("click", finish);
+  if(reduce || document.hidden){ finish(); return; }
+  setTimeout(finish, 5200);                       // red de seguridad: nunca se queda atascada
+  document.addEventListener("visibilitychange", () => { if(document.hidden) finish(); });
+  const t0 = performance.now(), MIN = 2000, MAX = 4500;
+  (function tick(now){
+    if(done) return;
+    const t = now - t0;
+    let p = Math.min(1, t / MIN); p = 1 - Math.pow(1 - p, 2.2);
+    if(!loaded && t < MAX) p = Math.min(p, .9);
+    el.style.setProperty("--p", p.toFixed(4)); pct.textContent = Math.round(p*100) + "%";
+    if(p >= 1) return finish();
+    requestAnimationFrame(tick);
+  })(t0);
+})();
 
-          <article class="card tilt reveal d2">
-            <span class="badge soft">Complementa tus redes</span>
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3.6 9h16.8M3.6 15h16.8"/></svg></div>
-            <h3>Imagen y Branding</h3>
-            <p>Identidad visual, fotografía y vídeo para que tu marca se reconozca en cada scroll.</p>
-            <a href="#contacto" class="link">Renovar mi imagen <span>→</span></a>
-          </article>
-        </div>
-      </div>
-    </section>
+/* cochecito de la barra de progreso */
+$("[data-car]").innerHTML = `<svg class="csvg" viewBox="0 0 120 50" aria-hidden="true">
+  <path d="M6 36v-8l12-4 14-12h40l18 12 18 4q6 2 6 8v2H6z" fill="#e84849"/>
+  <path d="M36 15h18v10H24zM60 15h12l14 10H60z" fill="#2b3440"/>
+  <g class="wh"><circle cx="30" cy="39" r="8" fill="#141212"/><circle cx="30" cy="39" r="3.5" fill="#d9d9d9"/></g>
+  <g class="wh"><circle cx="92" cy="39" r="8" fill="#141212"/><circle cx="92" cy="39" r="3.5" fill="#d9d9d9"/></g></svg>`;
 
-    <!-- ============ CHATGPT ADS ============ -->
-    <section class="section" id="chatgpt-ads">
-      <div class="container">
-        <div class="gpt reveal">
-          <div class="wm wm-gpt" data-mark aria-hidden="true"></div>
-          <div class="gpt-grid">
-            <div>
-              <div class="pioneer">✦ <span>Pioneros</span> · Entre las primeras agencias en implementarlo</div>
-              <h2>Publicidad en <span class="grad-text">ChatGPT Ads</span>: el nuevo canal ya está aquí</h2>
-              <p>Millones de personas ya preguntan a ChatGPT qué comprar, a quién contratar o qué coche elegir. Hemos integrado el modelo de ChatGPT Ads en nuestro proceso productivo para que tu marca aparezca justo en ese momento de decisión.</p>
+/* ===================== LISTADO ===================== */
+const fuelCls = f => /eléctr/i.test(f) ? "e" : /híbrid/i.test(f) ? "h" : /glp/i.test(f) ? "g" : "";
+const cardHTML = (c, i) => {
+  const chips = [c.anio, kmf(c.km), c.cv ? c.cv + " CV" : null, c.caja].filter(Boolean);
+  const vid = featIds.has(c.id);
+  return `<article class="car" data-id="${c.id}" style="transition-delay:${(i % 8) * 50}ms">
+    <div class="c-img">${vid ? '<span class="tagv"><i>▶</i>En vídeo</span>' : ""}<span class="fuel ${fuelCls(c.comb)}">${esc(c.comb)}</span>
+      <img src="${img(c)}" alt="${esc(nombre(c))}" loading="lazy" decoding="async" width="300" height="180"></div>
+    <div class="c-bd">
+      <div class="c-mk">${esc(c.marca)}</div>
+      <div class="c-md">${esc(c.modelo)}</div>
+      <div class="c-vr" title="${esc(c.version)}">${esc(c.version) || "&nbsp;"}</div>
+      <div class="c-ch">${chips.map(x => `<span>${esc(x)}</span>`).join("")}</div>
+      <div class="c-ft"><div class="c-pr"><small>Precio</small>${eur(c.precio)}</div>
+        <button type="button" class="pick" data-pick="${c.id}">¡Lo quiero!</button></div>
+      <a class="c-ln" href="${esc(c.url)}" target="_blank" rel="noopener">Ficha en manchacars.com ↗</a>
+    </div></article>`;
+};
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.08});
+const observe = root => root.querySelectorAll(".car:not(.in)").forEach(el => reduce ? el.classList.add("in") : io.observe(el));
 
-              <div class="gpt-features">
-                <div class="gpt-feature">
-                  <span class="n">01</span>
-                  <div><h4>Intención de compra real</h4><p>Impactamos a usuarios que están preguntando activamente por soluciones como la tuya.</p></div>
-                </div>
-                <div class="gpt-feature">
-                  <span class="n">02</span>
-                  <div><h4>Mensajes conversacionales</h4><p>Adaptamos tus anuncios al lenguaje y contexto de cada conversación.</p></div>
-                </div>
-                <div class="gpt-feature">
-                  <span class="n">03</span>
-                  <div><h4>Ventaja de ser los primeros</h4><p>Menos competencia y costes más bajos mientras el resto del mercado aún no ha llegado.</p></div>
-                </div>
-                <div class="gpt-feature">
-                  <span class="n">04</span>
-                  <div><h4>Integrado con tus redes</h4><p>Combinamos ChatGPT Ads con Social Ads para multiplicar el alcance de cada campaña.</p></div>
-                </div>
-              </div>
+$("#g-vid").innerHTML = FEAT.map(cardHTML).join("");
+observe($("#g-vid"));
 
-              <a href="#contacto" class="btn btn-white btn-lg magnetic">Quiero estar en ChatGPT Ads <span class="arrow">→</span></a>
-            </div>
+const F = { tipo:"", comb:"", sort:"rel", q:"", shown:24 };
+function filtered(){
+  const q = F.q.trim().toLowerCase();
+  const filtering = !!(F.tipo || F.comb || q || F.sort !== "rel");
+  let list = COCHES.filter(c => (filtering || !featIds.has(c.id))
+    && (!F.tipo || c.tipo === F.tipo)
+    && (!F.comb || c.comb.startsWith(F.comb))
+    && (!q || `${c.marca} ${c.modelo} ${c.version}`.toLowerCase().includes(q)));
+  const s = { pa:(a,b)=>a.precio-b.precio, pd:(a,b)=>b.precio-a.precio, km:(a,b)=>a.km-b.km, kmd:(a,b)=>b.km-a.km, new:(a,b)=>(b.anio||0)-(a.anio||0) || a.km-b.km, old:(a,b)=>(a.anio||9999)-(b.anio||9999) || b.km-a.km,
+              rel:(a,b)=>((b.anio||0)-(a.anio||0)) || (a.precio-b.precio) }[F.sort];
+  return list.sort(s);
+}
+function renderList(){
+  const list = filtered();
+  $("#g-all").innerHTML = list.length ? list.slice(0, F.shown).map(cardHTML).join("") : `<div class="empty">No hay coches con esos filtros. Prueba con otros o <a href="#formulario">cuéntanos qué buscas</a> y te lo buscamos.</div>`;
+  const filt = !!(F.tipo || F.comb || F.q.trim()), all = filt || F.sort !== "rel";
+  const SORTN = {pa:"de menos a más precio", pd:"de más a menos precio", km:"de menos a más km", kmd:"de más a menos km", new:"de más nuevo a más antiguo", old:"de más antiguo a más nuevo"};
+  $("#count").textContent = `${list.length + (all ? 0 : FEAT.length)} coches disponibles${filt ? " con estos filtros" : ""}${SORTN[F.sort] ? " · ordenados " + SORTN[F.sort] : ""}`;
+  $("#more").style.display = list.length > F.shown ? "" : "none";
+  observe($("#g-all")); markSel();
+}
+$("#f-tipo").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return;
+  $$("#f-tipo button").forEach(x => x.classList.toggle("on", x === b)); F.tipo = b.dataset.t; F.shown = 24; renderList(); track("FilterTipo", {tipo:F.tipo}); });
+$("#f-comb").onchange = e => { F.comb = e.target.value; F.shown = 24; renderList(); };
+$("#f-sort").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return;
+  $$("#f-sort button").forEach(x => { const on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-checked", on); });
+  F.sort = b.dataset.s; F.shown = 24; renderList(); track("SortCars", {sort:F.sort});
+  if($("#filters").getBoundingClientRect().top < 0) $("#filters").scrollIntoView({behavior:"smooth", block:"start"}); });
+let qT; $("#f-q").oninput = e => { clearTimeout(qT); qT = setTimeout(() => { F.q = e.target.value; F.shown = 24; renderList(); }, 180); };
+$("#more button").onclick = () => { F.shown += 24; renderList(); };
+document.addEventListener("click", e => { const b = e.target.closest("[data-pick]"); if(b) selectCar(+b.dataset.pick, true); });
+$("#sc-th").innerHTML = FEAT.slice(0,3).map(c => `<img src="${img(c)}" alt="">`).join("");
 
-            <div class="gpt-visual">
-<div class="ai-net" aria-label="Ilustración: la inteligencia artificial conecta tu marca con clientes potenciales" role="img">
-              <svg viewBox="0 0 480 390">
-                <defs>
-                  <radialGradient id="aiCore" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#e9d5ff"/><stop offset=".45" stop-color="#a855f7"/><stop offset="1" stop-color="#4c1d95"/></radialGradient>
-                  <filter id="aiBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
-                </defs>
-                <circle cx="240" cy="190" r="90" fill="#8b3dff" opacity=".45" filter="url(#aiBlur)" class="ai-halo"/>
-                <path id="aiL0" class="ai-link" d="M240 190 Q125 130 70 70"/><path id="aiL1" class="ai-link" d="M240 190 Q295 130 410 70"/><path id="aiL2" class="ai-link" d="M240 190 Q168 192 36 195"/><path id="aiL3" class="ai-link" d="M240 190 Q372 192 444 195"/><path id="aiL4" class="ai-link" d="M240 190 Q192 255 84 320"/><path id="aiL5" class="ai-link" d="M240 190 Q348 255 396 320"/>
-                <circle r="4.5" class="ai-pulse"><animateMotion dur="3s" begin="0.0s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#aiL0"/></animateMotion></circle><circle r="4.5" class="ai-pulse"><animateMotion dur="3s" begin="0.5s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#aiL1"/></animateMotion></circle><circle r="4.5" class="ai-pulse"><animateMotion dur="3s" begin="1.0s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#aiL2"/></animateMotion></circle><circle r="4.5" class="ai-pulse"><animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#aiL3"/></animateMotion></circle><circle r="4.5" class="ai-pulse"><animateMotion dur="3s" begin="2.0s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#aiL4"/></animateMotion></circle><circle r="4.5" class="ai-pulse"><animateMotion dur="3s" begin="2.5s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#aiL5"/></animateMotion></circle>
-                <g class="ai-core" transform="translate(240 190)">
-                  <circle r="78" class="ai-orbit"/>
-                  <circle r="62" fill="url(#aiCore)"/>
-                  <circle r="46" fill="#12061f"/>
-                  <g class="ai-pins"><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(0)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(30)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(60)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(90)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(120)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(150)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(180)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(210)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(240)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(270)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(300)"/><rect x="-3" y="-58" width="6" height="12" rx="2" transform="rotate(330)"/></g>
-                  <rect x="-26" y="-26" width="52" height="52" rx="12" class="ai-chip"/>
-                  <text y="9" class="ai-label">IA</text>
-                </g>
-                <g class="ai-client" style="--d:0.0s" transform="translate(70 70)">
-        <circle r="27" class="ac-bg"/><circle r="27" class="ac-ring"/>
-        <circle cy="-6" r="8.5" class="ac-p"/><path d="M-15 16 a15 13 0 0 1 30 0 z" class="ac-p"/>
-        <g class="ac-badge" transform="translate(14 -26)"><rect x="-4" y="-10" width="44" height="20" rx="10"/><text x="18" y="4">Lead ✓</text></g>
-      </g><g class="ai-client" style="--d:0.5s" transform="translate(410 70)">
-        <circle r="27" class="ac-bg"/><circle r="27" class="ac-ring"/>
-        <circle cy="-6" r="8.5" class="ac-p"/><path d="M-15 16 a15 13 0 0 1 30 0 z" class="ac-p"/>
-        <g class="ac-badge" transform="translate(14 -26)"><rect x="-4" y="-10" width="44" height="20" rx="10"/><text x="18" y="4">Lead ✓</text></g>
-      </g><g class="ai-client" style="--d:1.0s" transform="translate(36 195)">
-        <circle r="27" class="ac-bg"/><circle r="27" class="ac-ring"/>
-        <circle cy="-6" r="8.5" class="ac-p"/><path d="M-15 16 a15 13 0 0 1 30 0 z" class="ac-p"/>
-        <g class="ac-badge" transform="translate(14 -26)"><rect x="-4" y="-10" width="44" height="20" rx="10"/><text x="18" y="4">Lead ✓</text></g>
-      </g><g class="ai-client" style="--d:1.5s" transform="translate(444 195)">
-        <circle r="27" class="ac-bg"/><circle r="27" class="ac-ring"/>
-        <circle cy="-6" r="8.5" class="ac-p"/><path d="M-15 16 a15 13 0 0 1 30 0 z" class="ac-p"/>
-        <g class="ac-badge" transform="translate(14 -26)"><rect x="-4" y="-10" width="44" height="20" rx="10"/><text x="18" y="4">Lead ✓</text></g>
-      </g><g class="ai-client" style="--d:2.0s" transform="translate(84 320)">
-        <circle r="27" class="ac-bg"/><circle r="27" class="ac-ring"/>
-        <circle cy="-6" r="8.5" class="ac-p"/><path d="M-15 16 a15 13 0 0 1 30 0 z" class="ac-p"/>
-        <g class="ac-badge" transform="translate(14 -26)"><rect x="-4" y="-10" width="44" height="20" rx="10"/><text x="18" y="4">Lead ✓</text></g>
-      </g><g class="ai-client" style="--d:2.5s" transform="translate(396 320)">
-        <circle r="27" class="ac-bg"/><circle r="27" class="ac-ring"/>
-        <circle cy="-6" r="8.5" class="ac-p"/><path d="M-15 16 a15 13 0 0 1 30 0 z" class="ac-p"/>
-        <g class="ac-badge" transform="translate(14 -26)"><rect x="-4" y="-10" width="44" height="20" rx="10"/><text x="18" y="4">Lead ✓</text></g>
-      </g>
-                <g class="ai-q q1" transform="translate(118 112)"><rect width="150" height="30" rx="15"/><text x="75" y="19">¿Qué SUV me recomiendas?</text></g>
-                <g class="ai-q q2" transform="translate(250 268)"><rect width="146" height="30" rx="15"/><text x="73" y="19">Busco agencia en Madrid</text></g>
-              </svg>
-            </div>
-            <div class="chat" id="chatDemo" aria-label="Ejemplo de anuncio en una conversación de ChatGPT">
-              <div class="chat-top"><i></i><i></i><i></i><span>Ejemplo de conversación</span></div>
-              <div class="msg user">Busco un SUV híbrido para familia en Madrid, ¿qué opciones me recomiendas?</div>
-              <div class="msg ai">Te recomiendo comparar consumo, espacio de maletero y etiqueta ECO. Estas son algunas opciones a tener en cuenta…
-                <div class="sponsored">
-                  <span class="tagline">Patrocinado</span>
-                  <strong>Tu concesionario aquí 🚗</strong>
-                  <small>Prueba el nuevo SUV híbrido este fin de semana. Reserva tu test drive.</small>
-                </div>
-              </div>
-              <div class="msg user">¡Perfecto! ¿Cómo reservo la prueba?</div>
-              <div class="msg ai typing" aria-hidden="true"><i></i><i></i><i></i></div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+/* ===================== FORMULARIO ===================== */
+const form = $("#wiz");
+const state = { car:null, cur:0, started:false, submitted:false };
+const FLOW_ANY = ["tipo","presupuesto","combustible","plan","contacto"];
+const FLOW_CAR = ["plan","contacto"];
+const flow = () => state.car ? FLOW_CAR : FLOW_ANY;
+const TIPO_FORM = { Compacto:"Compacto / utilitario", SUV:"SUV", Familiar:"Familiar / monovolumen", "4x4":"4x4 / todoterreno", Berlina:"Berlina / premium" };
+const bucket = p => p <= 8000 ? "Hasta 8.000 €" : p <= 12000 ? "8.000 – 12.000 €" : p <= 18000 ? "12.000 – 18.000 €" : p <= 25000 ? "18.000 – 25.000 €" : "Más de 25.000 €";
+const combForm = f => /híbrid/i.test(f) ? "Híbrido" : /eléctr/i.test(f) ? "Eléctrico" : /glp/i.test(f) ? "GLP" : /diés/i.test(f) ? "Diésel" : "Gasolina";
+const val = n => form.querySelector(`input[name="${n}"]:checked`)?.value || "";
+const checkRadio = (name, value) => { const r = [...form.querySelectorAll(`input[name="${name}"]`)].find(x => x.value === value); if(r) r.checked = true; };
 
-    <!-- ============ AUTOMOCIÓN / SECTORES ============ -->
-    <section class="section" id="sectores">
-      <div class="container auto-grid">
-        <div class="showroom reveal" id="showroom" aria-roledescription="carrusel" aria-label="Showroom de coches de lujo">
-          <div class="sr-stage">
-            <div class="sr-glow"></div>
-            <div class="sr-rings"><i></i><i></i><i></i></div>
-            <div class="speed-lines" aria-hidden="true">
-              <i style="top:34%;width:40%;animation-delay:0s"></i>
-              <i style="top:48%;width:30%;animation-delay:.4s"></i>
-              <i style="top:60%;width:50%;animation-delay:.8s"></i>
-            </div>
-            <div class="sr-cars">
-              <figure class="sr-car on" data-name="Lamborghini Revuelto" data-type="Superdeportivo híbrido · V12" data-price="1.015 CV" data-glb="img/vehiculos/lujo/lamborghini-revuelto.glb"><img src="img/vehiculos/lujo/lamborghini-revuelto.webp" alt="Lamborghini Revuelto morado"></figure>
-              <figure class="sr-car" data-name="Rolls-Royce Cullinan" data-type="SUV de lujo · V12 biturbo" data-price="V12 6.75 L" data-glb="img/vehiculos/lujo/rolls-royce-cullinan.glb"><img src="img/vehiculos/lujo/rolls-royce-cullinan.webp" alt="Rolls-Royce Cullinan negro" loading="lazy"></figure>
-              <figure class="sr-car" data-name="Ferrari Roma" data-type="Coupé GT · V8 biturbo" data-price="620 CV" data-glb="img/vehiculos/lujo/ferrari-roma.glb"><img src="img/vehiculos/lujo/ferrari-roma.webp" alt="Ferrari Roma rojo" loading="lazy"></figure>
-              <figure class="sr-car" data-name="Porsche 911 GT3 RS" data-type="Deportivo de circuito · bóxer 4.0" data-price="525 CV" data-glb="img/vehiculos/lujo/porsche-911-gt3-rs.glb"><img src="img/vehiculos/lujo/porsche-911-gt3-rs.webp" alt="Porsche 911 GT3 RS blanco" loading="lazy"></figure>
-              <figure class="sr-car" data-name="Bentley Continental GT" data-type="Gran turismo de lujo · biturbo" data-price="V8 4.0" data-glb="img/vehiculos/lujo/bentley-continental-gt.glb"><img src="img/vehiculos/lujo/bentley-continental-gt.webp" alt="Bentley Continental GT verde" loading="lazy"></figure>
-              <figure class="sr-car" data-name="Mercedes-AMG G 63" data-type="Todoterreno de lujo · V8 biturbo" data-price="585 CV" data-glb="img/vehiculos/lujo/mercedes-amg-g63.glb"><img src="img/vehiculos/lujo/mercedes-amg-g63.webp" alt="Mercedes-AMG G 63 negro" loading="lazy"></figure>
-            </div>
-            <canvas class="sr-3d" id="sr3d" aria-label="Modelo 3D del vehículo: arrastra para girarlo"></canvas>
-            <div class="sr-hint" aria-hidden="true"><span>↔</span> Arrastra para girar 360°</div>
-            <div class="sr-floor"></div>
-            <div class="auto-chip ac-1">🏁 Stock <b>premium</b></div>
-            <div class="auto-chip ac-2">📈 Leads <b>cualificados</b></div>
-            <div class="auto-chip ac-3">🎯 Público <b>en mercado</b></div>
-          </div>
-          <div class="sr-bar">
-            <div class="sr-info"><span class="sr-type" id="srType">Superdeportivo híbrido · V12</span><div class="sr-row"><strong id="srName">Lamborghini Revuelto</strong><span class="sr-price" id="srPrice">1.015 CV</span></div></div>
-            <div class="sr-ctrl">
-              <button type="button" class="sr-btn" id="srPrev" aria-label="Vehículo anterior">←</button>
-              <div class="sr-dots" id="srDots"></div>
-              <button type="button" class="sr-btn" id="srNext" aria-label="Vehículo siguiente">→</button>
-            </div>
-          </div>
-        </div>
+function markSel(){ $$(".car").forEach(el => { const on = !!state.car && +el.dataset.id === state.car.id; el.classList.toggle("sel", on); const b = el.querySelector(".pick"); if(b) b.textContent = on ? "Elegido ✓" : "¡Lo quiero!"; }); }
+function selectCar(id, scroll){
+  const c = id ? byId(id) : null;
+  state.car = c; markSel();
+  if(state.submitted) return;
+  const sb = $("#selbox");
+  if(c){
+    checkRadio("tipo", TIPO_FORM[c.tipo]); checkRadio("presupuesto", bucket(c.precio)); checkRadio("combustible", combForm(c.comb));
+    $("#sb-img").src = img(c); $("#sb-img").alt = nombre(c);
+    $("#sb-n").textContent = nombre(c); $("#sb-d").textContent = eur(c.precio) + (c.anio ? ` · ${c.anio}` : "");
+    $("#sb-auto").innerHTML = [TIPO_FORM[c.tipo], c.comb, c.caja].filter(Boolean).map((t,i) => `<span style="animation-delay:${.25 + i*.15}s">${esc(t)}</span>`).join("");
+    sb.classList.remove("on"); void sb.offsetWidth; sb.classList.add("on");
+    $("#ch-t").textContent = "¡Buena elección!";
+    $("#q-plan").textContent = `Tres toques sobre tu ${c.modelo}`;
+    track("CarSelect", {car: nombre(c), id: c.id});
+  } else {
+    sb.classList.remove("on");
+    $("#ch-t").textContent = "Encuentra tu coche";
+    $("#q-plan").textContent = "Tres toques y listo";
+  }
+  state.cur = 0; state.started = true; render();
+  if(scroll) $("#card").scrollIntoView({behavior: reduce ? "auto" : "smooth", block:"start"});
+}
+$("#sb-c").onclick = () => $("#coches").scrollIntoView({behavior:"smooth", block:"start"});
+$("#sb-x").onclick = () => selectCar(null, false);
 
-        <div>
-          <span class="eyebrow reveal">Experiencia en automoción</span>
-          <h2 class="reveal">Ya aceleramos marcas <span class="grad-text">del sector automovilístico</span></h2>
-          <p class="reveal">Trabajamos con empresas de automoción generando visitas a concesionarios, reservas de pruebas de conducción y solicitudes de financiación desde las redes sociales. Ahora buscamos <strong style="color:#fff">nuevas empresas de cualquier sector</strong> que quieran crecer a través de las redes.</p>
+function valid(name){
+  if(name === "plan") return !!val("cuando") && !!val("pago") && !!val("entrega");
+  if(name === "contacto") return true;
+  return !!val(name);
+}
+function render(){
+  const f = flow(), name = f[state.cur];
+  form.querySelectorAll(".step").forEach(s => s.classList.toggle("on", s.dataset.step === name));
+  const p = state.submitted ? 1 : state.cur / f.length;
+  $("#pfill").style.width = (p*100) + "%";
+  const pc = $("#pcar"); pc.style.left = (p*100) + "%"; pc.style.transform = `translateX(${-85*p}%)`;
+  pc.classList.add("still"); clearTimeout(render.t);
+  requestAnimationFrame(() => { pc.classList.remove("still"); render.t = setTimeout(() => pc.classList.add("still"), 650); });
+  $("#ch-s").textContent = name === "contacto" ? "Último paso · sin compromiso" : `Paso ${state.cur+1} de ${f.length}`;
+  $("#back").classList.toggle("show", state.cur > 0);
+  $("#hint").style.visibility = name === "contacto" ? "hidden" : "visible";
+  $("#nav2").classList.toggle("ready", name !== "contacto" && valid(name));
+  $("#stock-cta").hidden = !!state.car || state.submitted;
+  if(name === "contacto") summary();
+  updateSticky();
+}
+function go(d){
+  const f = flow();
+  state.cur = Math.max(0, Math.min(f.length-1, state.cur + d));
+  render();
+  if($("#card").getBoundingClientRect().top < 0) $("#card").scrollIntoView({behavior:"smooth", block:"start"});
+  track("FormStep", {step: f[state.cur], car: !!state.car});
+  if(f[state.cur] === "contacto") setTimeout(() => { if(matchMedia("(hover:hover)").matches) $("#in-n").focus({preventScroll:true}); }, 400);
+}
+function prefs(){
+  const c = state.car;
+  return { tipo: c ? TIPO_FORM[c.tipo] : val("tipo"), presupuesto: c ? bucket(c.precio) : val("presupuesto"), combustible: c ? c.comb : val("combustible") };
+}
+function summary(){
+  const p = prefs(), c = state.car;
+  $("#summary").innerHTML = [c && nombre(c), !c && p.tipo, !c && p.presupuesto, !c && p.combustible, val("cuando"), val("pago"), val("entrega") === "Sí" && "Entrega su coche"]
+    .filter(Boolean).map(x => `<span>${esc(x)}</span>`).join("");
+}
 
-          <ul class="check-list reveal">
-            <li><span class="ck">✓</span><div><strong>Campañas por modelo y concesionario</strong> con segmentación geográfica precisa.</div></li>
-            <li><span class="ck">✓</span><div><strong>Leads listos para tu equipo comercial</strong> integrados con tu CRM.</div></li>
-            <li><span class="ck">✓</span><div><strong>Metodología probada</strong> que replicamos en nuevos sectores.</div></li>
-          </ul>
+/* animación satisfactoria al elegir */
+let lastTap = null;
+form.addEventListener("pointerdown", e => { const l = e.target.closest(".opt label"); if(l) lastTap = {l, x:e.clientX, y:e.clientY}; });
+function celebrate(input){
+  if(reduce) return;
+  const label = form.querySelector(`label[for="${input.id}"]`), opt = input.closest(".opt"); if(!label) return;
+  const r = label.getBoundingClientRect();
+  const tap = lastTap && lastTap.l === label ? lastTap : {x: r.left + r.width/2, y: r.top + r.height/2}; lastTap = null;
+  const rip = document.createElement("span"); rip.className = "rip"; const d = Math.max(r.width, r.height) * 2.4;
+  Object.assign(rip.style, {left:(tap.x - r.left)+"px", top:(tap.y - r.top)+"px", width:d+"px", height:d+"px"});
+  label.appendChild(rip); setTimeout(() => rip.remove(), 650);
+  label.classList.remove("boom"); void label.offsetWidth; label.classList.add("boom");
+  const ox = input.closest(".c3") ? r.width/2 : r.width - 20, oy = r.height/2;
+  for(let i = 0; i < 12; i++){
+    const s = document.createElement("i"); s.className = "spark" + (i%3===0 ? " y" : "") + (i%2 ? " l" : "");
+    const a = Math.PI*2*i/12 + Math.random()*.4, dist = 24 + Math.random()*22;
+    s.style.left = ox + "px"; s.style.top = oy + "px";
+    s.style.setProperty("--dx", Math.cos(a)*dist + "px"); s.style.setProperty("--dy", Math.sin(a)*dist + "px"); s.style.setProperty("--r", (a*57) + "deg");
+    opt.appendChild(s); setTimeout(() => s.remove(), 700);
+  }
+  try{ if(navigator.vibrate && navigator.userActivation?.hasBeenActive) navigator.vibrate(12); }catch(_){}
+}
+form.addEventListener("change", e => {
+  const t = e.target;
+  if(!state.started){ state.started = true; track("FormStart"); }
+  t.closest(".field,.consent")?.classList.remove("err");
+  const name = flow()[state.cur];
+  $("#nav2").classList.toggle("ready", name !== "contacto" && valid(name));
+  if(t.type === "radio") celebrate(t);
+  if(t.type === "radio" && valid(name) && name !== "contacto"){
+    const at = state.cur, pb = $(".pbar"); pb.classList.remove("pulse"); void pb.offsetWidth; pb.classList.add("pulse");
+    setTimeout(() => { if(state.cur === at) go(1); }, reduce ? 200 : 560);
+  }
+});
+form.addEventListener("input", e => { const f = e.target.closest(".field"); if(!f) return; f.classList.remove("err"); f.classList.toggle("okv", checkField(f.id) && !!e.target.value.trim()); });
+const telClean = () => form.telefono.value.replace(/[\s.\-()]/g, "").replace(/^(\+34|0034)/, "");
+function checkField(id){
+  if(id === "f-name") return form.nombre.value.trim().length >= 2;
+  if(id === "f-phone") return /^[6789]\d{8}$/.test(telClean());
+  if(id === "f-email"){ const v = form.email.value.trim(); return !v || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+  return true;
+}
+$("#back").onclick = () => go(-1);
+$("#nextb").onclick = () => go(1);
 
-          <div class="sector-pills reveal">
-            <span class="pill on">🚗 Automoción</span>
-            <span class="pill">🏠 Inmobiliaria</span>
-            <span class="pill">🩺 Salud y clínicas</span>
-            <span class="pill">🎓 Formación</span>
-            <span class="pill">🛍️ E-commerce</span>
-            <span class="pill">🍽️ Restauración</span>
-            <span class="pill">💼 Servicios B2B</span>
-            <span class="pill">✨ ¿El tuyo?</span>
-          </div>
+function score(){
+  const s = n => +(form.querySelector(`input[name="${n}"]:checked`)?.dataset.s || 0);
+  const pres = state.car ? 2 : s("presupuesto");
+  const t = pres + s("cuando") + s("pago") + s("entrega") + (state.car ? 1 : 0);
+  return t >= 7 ? "caliente" : t >= 4 ? "templado" : "frio";
+}
 
-          <a href="#contacto" class="btn btn-primary btn-lg magnetic reveal">Quiero que mi empresa sea la siguiente <span class="arrow">→</span></a>
-        </div>
-      </div>
-    </section>
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  const errs = [];
+  ["f-name","f-phone","f-email"].forEach(id => { const bad = !checkField(id); $("#"+id).classList.toggle("err", bad); if(bad) errs.push(id); });
+  const cb = !form.consentimiento.checked; $("#f-consent").classList.toggle("err", cb); if(cb) errs.push("f-consent");
+  if(errs.length){ $("#"+errs[0]).querySelector("input")?.focus(); return; }
+  const c = state.car, p = prefs(), tel = telClean();
+  const data = {
+    vehiculo: c ? `${nombre(c)} ${c.version} · ${c.matricula || "ref. " + c.id} · ${eur(c.precio)}` : "Ninguno en concreto",
+    vehiculo_url: c ? c.url : "",
+    tipo: p.tipo, presupuesto: p.presupuesto, combustible: p.combustible,
+    cuando: val("cuando"), pago: val("pago"), entrega: val("entrega"),
+    nombre: form.nombre.value.trim(), telefono: "+34" + tel, email: form.email.value.trim(),
+    calidad_lead: score(), origen: "meta-ads-landing", utm: Object.fromEntries(new URLSearchParams(location.search)),
+    fecha: new Date().toISOString()
+  };
+  const btn = $("#send"); btn.disabled = true; btn.querySelector("span").textContent = "Enviando…";
+  if(form.botcheck && form.botcheck.checked) return; // bot: se descarta en silencio
+  try{
+    const envios = [];
+    if(WEB3FORMS_KEY){
+      const calidad = {caliente:"🔥 CALIENTE", templado:"🌤️ Templado", frio:"❄️ Frío"}[data.calidad_lead] || data.calidad_lead;
+      const u = data.utm, utm = Object.keys(u).length ? Object.entries(u).map(([k,x]) => `${k}=${x}`).join(" · ") : "—";
+      const mail = {
+        access_key: WEB3FORMS_KEY,
+        subject: `${calidad} · Nuevo lead Manchacars: ${data.nombre} · ${c ? nombre(c) : (data.tipo || "sin coche concreto")}`,
+        from_name: "Landing Manchacars",
+        "Calidad del lead": calidad,
+        "Nombre": data.nombre,
+        "Teléfono": data.telefono,
+        "Email": data.email || "—",
+        "Coche elegido": data.vehiculo,
+        "Ficha en la web": data.vehiculo_url || "—",
+        "Tipo buscado": data.tipo || "—",
+        "Presupuesto": data.presupuesto || "—",
+        "Combustible": data.combustible || "—",
+        "Cuándo compra": data.cuando || "—",
+        "Forma de pago": data.pago || "—",
+        "Entrega su coche": data.entrega || "—",
+        "Campaña (UTM)": utm,
+        "Fecha": new Date().toLocaleString("es-ES", {timeZone:"Europe/Madrid"})
+      };
+      if(data.email) mail.replyto = data.email;
+      envios.push(fetch("https://api.web3forms.com/submit", {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body:JSON.stringify(mail)})
+        .then(r => r.json().catch(() => ({})).then(j => { if(!r.ok || j.success === false) throw new Error(j.message || r.status); })));
+    }
+    if(FORM_ENDPOINT){
+      // Copia en Google Sheets. text/plain evita el preflight CORS, que Apps Script no admite
+      envios.push(fetch(FORM_ENDPOINT, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(data), redirect:"follow"})
+        .then(r => r.json().catch(() => ({ok:true})).then(j => { if(!r.ok || j.ok === false) throw new Error(j.error || r.status); })));
+    }
+    if(!envios.length) console.log("Lead (modo prueba, sin envío):", data);
+    else {
+      const rs = await Promise.allSettled(envios);
+      if(!rs.some(x => x.status === "fulfilled")) throw rs[0].reason; // basta con que llegue por una vía
+    }
+    state.submitted = true;
+    form.querySelectorAll(".step").forEach(s => s.classList.toggle("on", s.dataset.step === "done"));
+    $("#nav2").style.display = "none";
+    $("#pfill").style.width = "100%"; $("#pcar").style.left = "100%"; $("#pcar").style.transform = "translateX(-85%)";
+    $("#ch-t").textContent = "¡Solicitud enviada!"; $("#ch-s").textContent = "Te llamamos muy pronto";
+    $("#selbox").classList.remove("on"); $("#stock-cta").hidden = true;
+    $("#done-txt").textContent = `Gracias, ${data.nombre.split(" ")[0]}. Te llamamos al ${tel.replace(/(\d{3})(\d{3})(\d{3})/, "$1 $2 $3")}${c ? ` con todos los detalles del ${nombre(c)}` : " con los coches que encajan contigo"}.`;
+    confetti(); updateSticky();
+    try{ if(window.fbq) fbq("track", "Lead", {content_name: c ? nombre(c) : p.tipo, value: c ? c.precio : undefined, currency:"EUR", lead_quality: data.calidad_lead}); }catch(_){}
+  }catch(err){
+    btn.disabled = false; btn.querySelector("span").textContent = "Quiero mi propuesta";
+    alert("No se ha podido enviar. Inténtalo de nuevo en unos segundos.");
+  }
+});
 
-    <!-- ============ PROCESO ============ -->
-    <section class="section" id="proceso">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Cómo trabajamos</span>
-          <h2>De la primera llamada a <span class="grad-text">50+ leads al mes</span></h2>
-          <p>Un proceso claro, rápido y transparente. Sabrás en todo momento qué hacemos y qué resultados genera.</p>
-        </div>
-        <div class="process">
-          <div class="step reveal"><div class="bubble">01</div><h3>Auditoría</h3><p>Analizamos tu marca, competencia y público para detectar oportunidades.</p></div>
-          <div class="step reveal d1"><div class="bubble">02</div><h3>Estrategia</h3><p>Definimos canales, mensajes, creatividades y objetivos mensuales.</p></div>
-          <div class="step reveal d2"><div class="bubble">03</div><h3>Lanzamiento</h3><p>Producimos el contenido y activamos campañas en redes y ChatGPT Ads.</p></div>
-          <div class="step reveal d3"><div class="bubble">04</div><h3>Escalado</h3><p>Optimizamos cada semana y escalamos lo que mejor funciona.</p></div>
-        </div>
-      </div>
-    </section>
+/* confeti */
+function confetti(){
+  if(reduce) return;
+  const cv = $("#confetti"), ctx = cv.getContext("2d");
+  cv.width = innerWidth * devicePixelRatio; cv.height = innerHeight * devicePixelRatio; ctx.scale(devicePixelRatio, devicePixelRatio);
+  const r = $("#card").getBoundingClientRect(), ox = r.left + r.width/2, oy = Math.max(80, r.top + 120);
+  const cols = ["#e84849","#ff8a8b","#ffd36b","#9e1519","#ffffff"];
+  const P = Array.from({length:150}, () => ({x:ox, y:oy, vx:(Math.random()-.5)*16, vy:-Math.random()*15-4, s:Math.random()*7+4, r:Math.random()*6, vr:(Math.random()-.5)*.4, c:cols[Math.random()*cols.length|0]}));
+  let f = 0;
+  (function loop(){
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    P.forEach(p => { p.vy += .42; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr; ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2); ctx.restore(); });
+    if(++f < 160) requestAnimationFrame(loop); else ctx.clearRect(0,0,innerWidth,innerHeight);
+  })();
+}
 
-    <!-- ============ SIMULADOR ============ -->
-    <section class="section" id="simulador" style="padding-top:40px">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Simulador interactivo</span>
-          <h2>Calcula el potencial de <span class="grad-text">tu negocio</span></h2>
-          <p>Mueve los controles y descubre una estimación orientativa de lo que podrías generar trabajando con nosotros.</p>
-        </div>
-
-        <div class="calc reveal">
-          <div class="calc-in">
-            <div class="field">
-              <label for="ticket">Valor medio de un cliente <output id="ticketOut">1.500 €</output></label>
-              <input type="range" id="ticket" min="100" max="20000" step="100" value="1500">
-            </div>
-            <div class="field">
-              <label for="close">% de leads que cierras <output id="closeOut">10%</output></label>
-              <input type="range" id="close" min="1" max="50" step="1" value="10">
-            </div>
-            <div class="field">
-              <label>Canales</label>
-              <div class="seg" id="channels">
-                <button type="button" class="on" data-mult="1">Redes sociales</button>
-                <button type="button" data-mult="0.25">+ ChatGPT Ads</button>
-                <button type="button" data-mult="0.1">+ Landing optimizada</button>
-              </div>
-            </div>
-          </div>
-          <div class="calc-out">
-            <div class="out-row"><span>Leads / mes desde RRSS</span><strong id="oLeads">50</strong></div>
-            <div class="out-row"><span>Nuevos clientes / mes</span><strong id="oClients">5</strong></div>
-            <div class="out-row"><span>Facturación potencial</span><strong id="oRevenue">7.500 €</strong></div>
-            <p class="note">* Estimación orientativa basada en el mínimo garantizado de 50 leads/mes. Los resultados reales dependen del sector y la oferta.</p>
-            <a href="#contacto" class="btn btn-white magnetic">Hacer realidad estos números <span class="arrow">→</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ GLOBAL ============ -->
-    <section class="section" id="global">
-      <div class="wm wm-left" data-mark aria-hidden="true"></div>
-      <div class="container global">
-        <div>
-          <span class="eyebrow reveal">📍 Madrid, España</span>
-          <h2 class="reveal">Nacidos en Madrid, <span class="grad-text">trabajando para todo el mundo</span></h2>
-          <p class="reveal">Nuestro equipo está en el corazón de Madrid, pero nuestras campañas no tienen fronteras. Gestionamos marcas en varios idiomas, mercados y husos horarios con la misma cercanía que si estuviéramos en tu oficina.</p>
-          <div class="cities reveal">
-            <span class="pill on">🇪🇸 España</span>
-            <span class="pill">🇪🇺 Europa</span>
-            <span class="pill">🌎 Latinoamérica</span>
-            <span class="pill">🇺🇸 Estados Unidos</span>
-            <span class="pill">🌍 Oriente Medio</span>
-          </div>
-          <a href="#contacto" class="btn btn-ghost btn-lg magnetic reveal">Hablemos, estés donde estés <span class="arrow">→</span></a>
-        </div>
-        <div class="globe-wrap earth reveal" id="earth" role="img" aria-label="La Tierra vista desde satélite girando entre ubicaciones de todo el mundo">
-          <div class="orbit o2" aria-hidden="true"></div>
-          <div class="globe earth-fallback" aria-hidden="true"></div>
-          <div class="earth-canvas" id="earthCanvas" aria-hidden="true"></div>
-          <div class="earth-labels" id="earthLabels" aria-hidden="true"></div>
-          <div class="earth-hud" aria-hidden="true">
-            <span class="eh-live"><i></i> Vista satélite</span>
-            <span class="eh-city" id="ehCity">Madrid, España</span>
-            <span class="eh-coord" id="ehCoord">40.42° N · 3.70° O</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ BANDA DE MARCA ============ -->
-    <section class="brand-band reveal" aria-label="APOLO Marketing">
-      <div class="container">
-        <div class="bb-inner">
-          <div class="bb-logo" data-lockup="xl"></div>
-          <p class="bb-tag">Hacemos que tus <span class="grad-text">redes sociales</span> vendan. Desde Madrid, para todo el mundo.</p>
-          <a href="#contacto" class="btn btn-primary btn-lg magnetic">Empezar con APOLO <span class="arrow">→</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ BLOG PREVIEW ============ -->
-    <section class="section" id="blog-preview">
-      <div class="container">
-        <div class="section-head reveal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;max-width:none">
-          <div style="max-width:620px">
-            <span class="eyebrow">Blog</span>
-            <h2>Aprende marketing en redes <span class="grad-text">con nosotros</span></h2>
-            <p>Guías, tendencias y estrategias prácticas para que tu marca crezca en redes sociales.</p>
-          </div>
-          <a href="blog.html" class="btn btn-ghost magnetic">Ver los 20 artículos <span class="arrow">→</span></a>
-        </div>
-        <div class="posts" id="latestPosts"></div>
-      </div>
-    </section>
-
-    <!-- ============ FAQ ============ -->
-    <section class="section" id="faq" style="padding-top:40px">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Preguntas frecuentes</span>
-          <h2>Resolvemos tus <span class="grad-text">dudas</span></h2>
-        </div>
-        <div class="faq">
-          <div class="faq-item reveal">
-            <button class="faq-q" aria-expanded="false">¿Cómo podéis garantizar un mínimo de 50 leads al mes por cliente en redes sociales?<span class="plus">+</span></button>
-            <div class="faq-a"><p>Combinamos segmentación avanzada, creatividades testeadas y optimización diaria de campañas. Antes de empezar analizamos tu caso y, si aceptamos el proyecto, el compromiso queda firmado en contrato. Si un mes no llegamos, seguimos trabajando sin coste hasta conseguirlo.</p></div>
-          </div>
-          <div class="faq-item reveal">
-            <button class="faq-q" aria-expanded="false">¿Qué es ChatGPT Ads y por qué me interesa?<span class="plus">+</span></button>
-            <div class="faq-a"><p>Es el formato publicitario que permite mostrar tu marca dentro de las conversaciones con ChatGPT. Somos de las primeras agencias en integrarlo en nuestro proceso, lo que te da ventaja frente a competidores que todavía no están presentes en este canal.</p></div>
-          </div>
-          <div class="faq-item reveal">
-            <button class="faq-q" aria-expanded="false">¿Trabajáis solo con empresas de Madrid?<span class="plus">+</span></button>
-            <div class="faq-a"><p>No. Nuestra sede está en Madrid, pero trabajamos con empresas de toda España y de cualquier parte del mundo, en varios idiomas y mercados.</p></div>
-          </div>
-          <div class="faq-item reveal">
-            <button class="faq-q" aria-expanded="false">¿Solo trabajáis con el sector de la automoción?<span class="plus">+</span></button>
-            <div class="faq-a"><p>Tenemos amplia experiencia en automoción, pero nuestra metodología funciona en cualquier sector que quiera captar clientes a través de redes sociales. Estamos buscando activamente nuevas empresas con ganas de crecer.</p></div>
-          </div>
-          <div class="faq-item reveal">
-            <button class="faq-q" aria-expanded="false">¿También hacéis la web y la imagen de marca?<span class="plus">+</span></button>
-            <div class="faq-a"><p>Sí. Ofrecemos diseño y desarrollo web, landing pages de conversión, branding, fotografía y vídeo, para que todo tu ecosistema digital trabaje a favor de las campañas.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTACTO ============ -->
-    <section class="section" id="contacto">
-      <div class="container contact">
-        <div class="contact-box reveal">
-          <div class="wm wm-contact" data-mark aria-hidden="true"></div>
-          <div class="cb-logo" data-lockup="light"></div>
-          <span class="eyebrow" style="background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);color:#fff">Auditoría gratuita</span>
-          <h2>¿Listo para recibir mínimo 50 leads al mes desde tus redes?</h2>
-          <p>Cuéntanos sobre tu empresa y en menos de 24 horas te enviamos un plan personalizado con previsión de resultados. Sin compromiso.</p>
-          <ul class="contact-points">
-            <li><span class="ci">📍</span> Madrid, España · Clientes en todo el mundo</li>
-            <li><span class="ci">✉️</span> <a href="mailto:apollo.ai.contact@gmail.com">apollo.ai.contact@gmail.com</a></li>
-            <li><span class="ci">⚡</span> Respuesta en menos de 24 h</li>
-          </ul>
-        </div>
-
-        <form class="lead reveal d1" id="leadForm" novalidate>
-          <div class="form-fields">
-            <div class="form-row">
-              <div class="input"><label for="fName">Nombre</label><input id="fName" name="name" required placeholder="Tu nombre"></div>
-              <div class="input"><label for="fCompany">Empresa</label><input id="fCompany" name="company" required placeholder="Nombre de tu empresa"></div>
-            </div>
-            <div class="form-row">
-              <div class="input"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" required placeholder="tu@empresa.com"></div>
-              <div class="input"><label for="fPhone">Teléfono</label><input id="fPhone" name="phone" type="tel" placeholder="+34 600 000 000"></div>
-            </div>
-            <div class="input">
-              <label for="fSector">Sector</label>
-              <select id="fSector" name="sector">
-                <option>Automoción</option><option>Inmobiliaria</option><option>Salud</option><option>Formación</option>
-                <option>E-commerce</option><option>Restauración</option><option>Servicios B2B</option><option>Otro</option>
-              </select>
-            </div>
-            <div class="input">
-              <label>¿Qué te interesa?</label>
-              <div class="chips">
-                <label><input type="checkbox" name="svc" value="redes" checked><span>Redes sociales</span></label>
-                <label><input type="checkbox" name="svc" value="chatgpt"><span>ChatGPT Ads</span></label>
-                <label><input type="checkbox" name="svc" value="web"><span>Web</span></label>
-                <label><input type="checkbox" name="svc" value="imagen"><span>Imagen / Branding</span></label>
-              </div>
-            </div>
-            <div class="input"><label for="fMsg">Cuéntanos tu objetivo</label><textarea id="fMsg" name="message" placeholder="Ej.: queremos captar más clientes en Madrid y Barcelona…"></textarea></div>
-            <label class="consent"><input type="checkbox" name="privacy" required> <span>He leído y acepto la <a href="legal.html#privacidad" target="_blank">política de privacidad</a> y el tratamiento de mis datos para recibir la auditoría.</span></label>
-            <label class="consent"><input type="checkbox" name="marketing"> <span>Quiero recibir novedades y consejos de marketing en redes (opcional).</span></label>
-            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Solicitar auditoría gratuita <span class="arrow">→</span></button>
-            <p class="form-error" role="alert" hidden>No hemos podido enviar tu solicitud. Inténtalo de nuevo o escríbenos a <a href="mailto:apollo.ai.contact@gmail.com">apollo.ai.contact@gmail.com</a>.</p>
-            <p class="rgpd-info"><strong>Información básica sobre protección de datos.</strong> Responsable: APOLO Marketing. Finalidad: atender tu solicitud y enviarte la auditoría o presupuesto. Legitimación: tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y otros, en apollo.ai.contact@gmail.com. Más información en la <a href="legal.html#privacidad">política de privacidad</a>.</p>
-          </div>
-          <div class="form-ok">
-            <div class="big">🎉</div>
-            <h3>¡Solicitud recibida!</h3>
-            <p>Te contactaremos en menos de 24 horas con tu plan personalizado.</p>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <div id="site-footer"></div>
-
-  <a href="#contacto" class="float-cta" id="floatCta"><span class="pulse-ring"></span> Auditoría gratis</a>
-
-  <script src="js/articles.js"></script>
-  <script src="js/covers.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="js/intro.js"></script>
-  <script src="js/main.js?v=3"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/environments/RoomEnvironment.js"></script>
-  <script src="js/showroom3d.js?v=3"></script>
-  <script src="js/globe.js"></script>
+/* cabecera y barra fija en móvil */
+addEventListener("scroll", () => $("#top").classList.toggle("sh", scrollY > 10), {passive:true});
+let cardVisible = true;
+new IntersectionObserver(([e]) => { cardVisible = e.isIntersecting; updateSticky(); }, {threshold:.1}).observe($("#card"));
+function updateSticky(){
+  $("#sticky").classList.toggle("show", !cardVisible && !state.submitted && !document.body.classList.contains("lock"));
+  const left = flow().length - state.cur, c = state.car;
+  $("#sticky-t").innerHTML = c ? `<b>${esc(nombre(c))}</b>Te quedan ${left} paso${left>1?"s":""}`
+    : !state.started ? "<b>Encuentra tu coche</b>Menos de 1 minuto"
+    : `<b>Te quedan ${left} paso${left>1?"s":""}</b>Tus respuestas siguen ahí`;
+  $("#sticky-a").textContent = state.started ? "Continuar" : "Empezar";
+}
+renderList();
+render();
+</script>
 </body>
 </html>
